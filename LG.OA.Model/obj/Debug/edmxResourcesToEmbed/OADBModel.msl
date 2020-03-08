@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OADBModelStoreContainer" CdmEntityContainer="OADBContext">
+    <EntitySetMapping Name="ActionInfo">
+      <EntityTypeMapping TypeName="OADBModel.ActionInfo">
+        <MappingFragment StoreEntitySet="ActionInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="ModfiedOn" ColumnName="ModfiedOn" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="HttpMethd" ColumnName="HttpMethd" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+          <ScalarProperty Name="MenuIcon" ColumnName="MenuIcon" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileInfo">
+      <EntityTypeMapping TypeName="OADBModel.FileInfo">
+        <MappingFragment StoreEntitySet="FileInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuInfo">
+      <EntityTypeMapping TypeName="OADBModel.MenuInfo">
+        <MappingFragment StoreEntitySet="MenuInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderInfo">
+      <EntityTypeMapping TypeName="OADBModel.OrderInfo">
+        <MappingFragment StoreEntitySet="OrderInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_UserInfo_ActionInfo">
+      <EntityTypeMapping TypeName="OADBModel.R_UserInfo_ActionInfo">
+        <MappingFragment StoreEntitySet="R_UserInfo_ActionInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HasPermission" ColumnName="HasPermission" />
+          <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+          <ScalarProperty Name="ActionInfoID" ColumnName="ActionInfoID" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleInfo">
+      <EntityTypeMapping TypeName="OADBModel.RoleInfo">
+        <MappingFragment StoreEntitySet="RoleInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="ModfiedOn" ColumnName="ModfiedOn" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="OADBModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ModfiedOn" ColumnName="ModfiedOn" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfoExt">
+      <EntityTypeMapping TypeName="OADBModel.UserInfoExt">
+        <MappingFragment StoreEntitySet="UserInfoExt">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WF_Instance">
+      <EntityTypeMapping TypeName="OADBModel.WF_Instance">
+        <MappingFragment StoreEntitySet="WF_Instance">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="InstanceName" ColumnName="InstanceName" />
+          <ScalarProperty Name="StartBy" ColumnName="StartBy" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="WFInstanceId" ColumnName="WFInstanceId" />
+          <ScalarProperty Name="WF_TempID" ColumnName="WF_TempID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WF_Step">
+      <EntityTypeMapping TypeName="OADBModel.WF_Step">
+        <MappingFragment StoreEntitySet="WF_Step">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StepName" ColumnName="StepName" />
+          <ScalarProperty Name="ProcessBy" ColumnName="ProcessBy" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="ProcessTime" ColumnName="ProcessTime" />
+          <ScalarProperty Name="ProcessResult" ColumnName="ProcessResult" />
+          <ScalarProperty Name="PorcessComment" ColumnName="PorcessComment" />
+          <ScalarProperty Name="StepStatus" ColumnName="StepStatus" />
+          <ScalarProperty Name="IsStartStep" ColumnName="IsStartStep" />
+          <ScalarProperty Name="IsEndStep" ColumnName="IsEndStep" />
+          <ScalarProperty Name="ParentStepId" ColumnName="ParentStepId" />
+          <ScalarProperty Name="WF_InstanceID" ColumnName="WF_InstanceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WF_Temp">
+      <EntityTypeMapping TypeName="OADBModel.WF_Temp">
+        <MappingFragment StoreEntitySet="WF_Temp">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TepName" ColumnName="TepName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TempForm" ColumnName="TempForm" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="ActityType" ColumnName="ActityType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DefinitionIdentityTable">
+      <EntityTypeMapping TypeName="OADBModel.DefinitionIdentityTable">
+        <MappingFragment StoreEntitySet="DefinitionIdentityTable">
+          <ScalarProperty Name="SurrogateIdentityId" ColumnName="SurrogateIdentityId" />
+          <ScalarProperty Name="DefinitionIdentityHash" ColumnName="DefinitionIdentityHash" />
+          <ScalarProperty Name="DefinitionIdentityAnyRevisionHash" ColumnName="DefinitionIdentityAnyRevisionHash" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Package" ColumnName="Package" />
+          <ScalarProperty Name="Build" ColumnName="Build" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+          <ScalarProperty Name="Minor" ColumnName="Minor" />
+          <ScalarProperty Name="Revision" ColumnName="Revision" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdentityOwnerTable">
+      <EntityTypeMapping TypeName="OADBModel.IdentityOwnerTable">
+        <MappingFragment StoreEntitySet="IdentityOwnerTable">
+          <ScalarProperty Name="SurrogateIdentityId" ColumnName="SurrogateIdentityId" />
+          <ScalarProperty Name="SurrogateLockOwnerId" ColumnName="SurrogateLockOwnerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstanceMetadataChangesTable">
+      <EntityTypeMapping TypeName="OADBModel.InstanceMetadataChangesTable">
+        <MappingFragment StoreEntitySet="InstanceMetadataChangesTable">
+          <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+          <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+          <ScalarProperty Name="EncodingOption" ColumnName="EncodingOption" />
+          <ScalarProperty Name="Change" ColumnName="Change" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstancePromotedPropertiesTable">
+      <EntityTypeMapping TypeName="OADBModel.InstancePromotedPropertiesTable">
+        <MappingFragment StoreEntitySet="InstancePromotedPropertiesTable">
+          <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+          <ScalarProperty Name="PromotionName" ColumnName="PromotionName" />
+          <ScalarProperty Name="Value33" ColumnName="Value33" />
+          <ScalarProperty Name="Value34" ColumnName="Value34" />
+          <ScalarProperty Name="Value35" ColumnName="Value35" />
+          <ScalarProperty Name="Value36" ColumnName="Value36" />
+          <ScalarProperty Name="Value37" ColumnName="Value37" />
+          <ScalarProperty Name="Value38" ColumnName="Value38" />
+          <ScalarProperty Name="Value39" ColumnName="Value39" />
+          <ScalarProperty Name="Value40" ColumnName="Value40" />
+          <ScalarProperty Name="Value41" ColumnName="Value41" />
+          <ScalarProperty Name="Value42" ColumnName="Value42" />
+          <ScalarProperty Name="Value43" ColumnName="Value43" />
+          <ScalarProperty Name="Value44" ColumnName="Value44" />
+          <ScalarProperty Name="Value45" ColumnName="Value45" />
+          <ScalarProperty Name="Value46" ColumnName="Value46" />
+          <ScalarProperty Name="Value47" ColumnName="Value47" />
+          <ScalarProperty Name="Value48" ColumnName="Value48" />
+          <ScalarProperty Name="Value49" ColumnName="Value49" />
+          <ScalarProperty Name="Value50" ColumnName="Value50" />
+          <ScalarProperty Name="Value51" ColumnName="Value51" />
+          <ScalarProperty Name="Value52" ColumnName="Value52" />
+          <ScalarProperty Name="Value53" ColumnName="Value53" />
+          <ScalarProperty Name="Value54" ColumnName="Value54" />
+          <ScalarProperty Name="Value55" ColumnName="Value55" />
+          <ScalarProperty Name="Value56" ColumnName="Value56" />
+          <ScalarProperty Name="Value57" ColumnName="Value57" />
+          <ScalarProperty Name="Value58" ColumnName="Value58" />
+          <ScalarProperty Name="Value59" ColumnName="Value59" />
+          <ScalarProperty Name="Value60" ColumnName="Value60" />
+          <ScalarProperty Name="Value61" ColumnName="Value61" />
+          <ScalarProperty Name="Value62" ColumnName="Value62" />
+          <ScalarProperty Name="Value63" ColumnName="Value63" />
+          <ScalarProperty Name="Value64" ColumnName="Value64" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstancesTable">
+      <EntityTypeMapping TypeName="OADBModel.InstancesTable">
+        <MappingFragment StoreEntitySet="InstancesTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+          <ScalarProperty Name="SurrogateLockOwnerId" ColumnName="SurrogateLockOwnerId" />
+          <ScalarProperty Name="PrimitiveDataProperties" ColumnName="PrimitiveDataProperties" />
+          <ScalarProperty Name="ComplexDataProperties" ColumnName="ComplexDataProperties" />
+          <ScalarProperty Name="WriteOnlyPrimitiveDataProperties" ColumnName="WriteOnlyPrimitiveDataProperties" />
+          <ScalarProperty Name="WriteOnlyComplexDataProperties" ColumnName="WriteOnlyComplexDataProperties" />
+          <ScalarProperty Name="MetadataProperties" ColumnName="MetadataProperties" />
+          <ScalarProperty Name="DataEncodingOption" ColumnName="DataEncodingOption" />
+          <ScalarProperty Name="MetadataEncodingOption" ColumnName="MetadataEncodingOption" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="PendingTimer" ColumnName="PendingTimer" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="WorkflowHostType" ColumnName="WorkflowHostType" />
+          <ScalarProperty Name="ServiceDeploymentId" ColumnName="ServiceDeploymentId" />
+          <ScalarProperty Name="SuspensionExceptionName" ColumnName="SuspensionExceptionName" />
+          <ScalarProperty Name="SuspensionReason" ColumnName="SuspensionReason" />
+          <ScalarProperty Name="BlockingBookmarks" ColumnName="BlockingBookmarks" />
+          <ScalarProperty Name="LastMachineRunOn" ColumnName="LastMachineRunOn" />
+          <ScalarProperty Name="ExecutionStatus" ColumnName="ExecutionStatus" />
+          <ScalarProperty Name="IsInitialized" ColumnName="IsInitialized" />
+          <ScalarProperty Name="IsSuspended" ColumnName="IsSuspended" />
+          <ScalarProperty Name="IsReadyToRun" ColumnName="IsReadyToRun" />
+          <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+          <ScalarProperty Name="SurrogateIdentityId" ColumnName="SurrogateIdentityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeysTable">
+      <EntityTypeMapping TypeName="OADBModel.KeysTable">
+        <MappingFragment StoreEntitySet="KeysTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SurrogateKeyId" ColumnName="SurrogateKeyId" />
+          <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+          <ScalarProperty Name="EncodingOption" ColumnName="EncodingOption" />
+          <ScalarProperty Name="Properties" ColumnName="Properties" />
+          <ScalarProperty Name="IsAssociated" ColumnName="IsAssociated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LockOwnersTable">
+      <EntityTypeMapping TypeName="OADBModel.LockOwnersTable">
+        <MappingFragment StoreEntitySet="LockOwnersTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SurrogateLockOwnerId" ColumnName="SurrogateLockOwnerId" />
+          <ScalarProperty Name="LockExpiration" ColumnName="LockExpiration" />
+          <ScalarProperty Name="WorkflowHostType" ColumnName="WorkflowHostType" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="EnqueueCommand" ColumnName="EnqueueCommand" />
+          <ScalarProperty Name="DeletesInstanceOnCompletion" ColumnName="DeletesInstanceOnCompletion" />
+          <ScalarProperty Name="PrimitiveLockOwnerData" ColumnName="PrimitiveLockOwnerData" />
+          <ScalarProperty Name="ComplexLockOwnerData" ColumnName="ComplexLockOwnerData" />
+          <ScalarProperty Name="WriteOnlyPrimitiveLockOwnerData" ColumnName="WriteOnlyPrimitiveLockOwnerData" />
+          <ScalarProperty Name="WriteOnlyComplexLockOwnerData" ColumnName="WriteOnlyComplexLockOwnerData" />
+          <ScalarProperty Name="EncodingOption" ColumnName="EncodingOption" />
+          <ScalarProperty Name="WorkflowIdentityFilter" ColumnName="WorkflowIdentityFilter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RunnableInstancesTable">
+      <EntityTypeMapping TypeName="OADBModel.RunnableInstancesTable">
+        <MappingFragment StoreEntitySet="RunnableInstancesTable">
+          <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+          <ScalarProperty Name="WorkflowHostType" ColumnName="WorkflowHostType" />
+          <ScalarProperty Name="ServiceDeploymentId" ColumnName="ServiceDeploymentId" />
+          <ScalarProperty Name="RunnableTime" ColumnName="RunnableTime" />
+          <ScalarProperty Name="SurrogateIdentityId" ColumnName="SurrogateIdentityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceDeploymentsTable">
+      <EntityTypeMapping TypeName="OADBModel.ServiceDeploymentsTable">
+        <MappingFragment StoreEntitySet="ServiceDeploymentsTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServiceDeploymentHash" ColumnName="ServiceDeploymentHash" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="RelativeServicePath" ColumnName="RelativeServicePath" />
+          <ScalarProperty Name="RelativeApplicationPath" ColumnName="RelativeApplicationPath" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="ServiceNamespace" ColumnName="ServiceNamespace" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RoleInfoActionInfo" TypeName="OADBModel.RoleInfoActionInfo" StoreEntitySet="RoleInfoActionInfo">
+      <EndProperty Name="ActionInfo">
+        <ScalarProperty Name="ID" ColumnName="ActionInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="RoleInfo">
+        <ScalarProperty Name="ID" ColumnName="RoleInfo_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserInfoRoleInfo" TypeName="OADBModel.UserInfoRoleInfo" StoreEntitySet="UserInfoRoleInfo">
+      <EndProperty Name="RoleInfo">
+        <ScalarProperty Name="ID" ColumnName="RoleInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="UserInfo">
+        <ScalarProperty Name="ID" ColumnName="UserInfo_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WF_InstanceFileInfo" TypeName="OADBModel.WF_InstanceFileInfo" StoreEntitySet="WF_InstanceFileInfo">
+      <EndProperty Name="FileInfo">
+        <ScalarProperty Name="ID" ColumnName="FileInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="WF_Instance">
+        <ScalarProperty Name="ID" ColumnName="WF_Instance_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

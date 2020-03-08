@@ -1,0 +1,21 @@
+1、安装framwork3.5（必须为3.5或以上版本）
+
+2、安装iis6.0
+
+3、安装sql server 2000(打sp4补丁,或者sql server 2005)
+
+4、附加数据库，库名默认为OA,可自行修改为其他名称。
+
+5、更改web.config中数据库连接串信息，包括如下两个配置节，修改成自己数据库服务器的IP地址、数据库名称和数据库用户名密码
+		<add key="Connection" value="Server=127.0.0.1;database=OA;uid=sa;pwd="/>
+		<add key="StrConn" value="Server=127.0.0.1;database=OA;uid=sa;pwd="/>
+
+6、在IIS中新建站点，名称自定，目录指向FREEOA程序文件夹，设置主机头（如没有域名，可跳过此部）和默认内容文档（设置为Default.aspx）
+
+7、将asp.net版本设置为2.0(部分用户已自动设置为2.0，可跳过此步）
+
+8、启动网站
+
+9、管理员用户名admin,密码aa
+
+10、Enjoy it!

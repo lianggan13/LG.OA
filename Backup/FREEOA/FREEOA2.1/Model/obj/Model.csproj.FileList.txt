@@ -1,0 +1,5 @@
+bin\Debug\ptw.FileManager.Model.dll
+bin\Debug\ptw.FileManager.Model.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\ptw.FileManager.Model.dll
+obj\Debug\ptw.FileManager.Model.pdb

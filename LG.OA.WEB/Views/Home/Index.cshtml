@@ -1,0 +1,191 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>首页</title>
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+    <link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
+    <style>
+        .headTitle {
+            height: 100%;
+            background: url('../../Content/Images/bg.png') no-repeat 0px 0px;
+            background-size: cover;
+            background-attachment: fixed;
+            /*clear:both;*/
+        }
+
+            .headTitle img {
+                /*float:left;*/
+            }
+
+            .headTitle span {
+                /*line-height:100%;*/
+                font-size: 30px;
+                /*text-align: center;
+            vertical-align:middle;*/
+                font-weight: bold;
+                color: darkcyan;
+                overflow: hidden;
+                margin-left: 60px;
+                margin-bottom: 10px;
+                /*clear:both;*/
+            }
+
+        #westDiv ul {
+            list-style: none;
+        }
+
+        #westDiv li {
+            font-size: 23px;
+            font-weight: bold;
+            margin: 0px 0px 5px 0px;
+        }
+    </style>
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/jquery.parser.js"></script>
+    <script>
+        $(function () {
+            $('#tt2').datagrid({
+                title: 'My Title',
+                iconCls: 'icon-save',
+                width: 600,
+                height: 350,
+                nowrap: false,
+                striped: true,
+                fit: true,
+                url: 'datagrid_data.json',
+                sortName: 'code',
+                sortOrder: 'desc',
+                idField: 'code',
+                frozenColumns: [[
+                    { field: 'ck', checkbox: true },
+                    { title: 'code', field: 'code', width: 80, sortable: true }
+                ]],
+                columns: [[
+                    { title: 'Base Information', colspan: 3 },
+                    {
+                        field: 'opt', title: 'Operation', width: 100, align: 'center', rowspan: 2,
+                        formatter: function (value, rec) {
+                            return '<span style="color:red">Edit Delete</span>';
+                        }
+                    }
+                ], [
+                    { field: 'name', title: 'Name', width: 120 },
+                    { field: 'addr', title: 'Address', width: 120, rowspan: 2, sortable: true },
+                    { field: 'col4', title: 'Col41', width: 150, rowspan: 2 }
+                ]],
+                pagination: true,
+                rownumbers: true
+            });
+            BindClickEvent();
+
+            $.getJSON("/Home/GetMenuList", {}, function (data) {
+                var menuList = [];
+                menuList = data;
+                for (var i = 0, l = menuList.length; i < l; i++) {
+                    var menuJson = menuList[i];
+                    //<li><a href="javascript:void(0)" class="detailLink" url="/UserInfo/Index">用户管理</a></li>
+                    
+
+                    var menuHtml = $("<li></li>");
+                    menuHtml.attr("menuIndex", i);
+                    //menuHtml.append("<img src='" + menuJson.icon + "' />");
+                    menuHtml.append("<a href='javascript:void(0)' class=" + '"detailLink"' + "url='" + menuJson.url + "'>"
+                    +menuJson.title+"</a>");
+                    //alert(menuHtml);
+                    if (menuJson.title.indexOf("管理")>=0) {
+                        menuHtml.appendTo($("#managecenter"));
+                    } else if (menuJson.title.indexOf("流程")>=0) {
+                        menuHtml.appendTo($("#progresscenter"));
+
+                    }
+                    
+                }
+            });
+
+        });
+
+        function BindClickEvent() {
+            $(".detailLink").click(function () {
+                var title = $(this).text();
+                var url = $(this).attr("url");
+                var tabsObj = $("#tabsControl");
+                if (tabsObj.tabs('exists', title)) {
+                    tabsObj.tabs('select', title);
+                    return;
+                } else {
+                    $('#tabsControl').tabs('add', {
+                        title: title,
+                        content: ShowTabContent(url),
+                        closable: true,
+                        tools: [{
+                            iconCls: 'icon-mini-refresh',
+                            handler: function () {
+                                alert('refresh');
+                            }
+                        }]
+                    });
+                }
+            })
+        }
+
+
+        function ShowTabContent(url) {
+            var str = '<iframe src="'+url+'" style="width:100%;height:100%" frameborder="0"  ></iframe>';
+            return str;
+        }
+
+     
+
+    </script>
+</head>
+<body id="cc" class="easyui-layout">
+    <div data-options="region:'north',split:true" style="height: 90px;">
+        <div class="headTitle">
+            <img src="~/Content/Images/logo.gif" />
+            <span>LG OA 系统</span>
+        </div>
+    </div>
+    <div data-options="region:'south',split:true" title="状态栏" style="height: 100px; padding: 10px; background: #efefef;">
+        <div class="easyui-layout" data-options="fit:true" style="        background: #ccc;">
+            <div data-options="region:'center'">sub center</div>
+            <div data-options="region:'east',split:true" style="width:200px;">sub center</div>
+        </div>
+    </div>
+    @*<div data-options="region:'east',iconCls:'icon-reload',split:true" title="Tree Menu" style="width:180px;">
+            <ul class="easyui-tree" data-options="url:'tree_data.json'"></ul>
+        </div>*@
+    <div id="westDiv" data-options="region:'west',split:true" title="菜单栏" style="width:250px;padding:1px;overflow:hidden;">
+        <div class="easyui-accordion" data-options="fit:true,border:false">
+            <div id="managecenter" title="管理中心" data-options="iconCls:'icon-ok',selected:true" style="padding:10px;">
+                <ul>
+                    <li><a href="javascript:void(0)" class="detailLink" url="/UserInfo/Index">用户管理</a></li>
+                </ul>
+            </div>
+            <div id="progresscenter" title="流程中心" data-options="iconCls:'icon-ok'" style="padding:10px;overflow:auto;">
+                <ul>
+                    <li><a href="javascript:void(0)" class="detailLink" url="/RoleInfo/Index">角色管理</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div data-options="region:'center'" title="主窗口" style="overflow:hidden;">
+        <div id="tabsControl" class="easyui-tabs" data-options="fit:true,border:false">
+            @*<div title="Tab1" style="padding:20px;overflow:hidden;">
+                      
+            </div>
+            <div title="Tab2" data-options="closable:true" style="padding:20px;">This is Tab2 width close button.</div>
+            <div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="overflow:hidden;padding:5px;">
+                <table id="tt2"></table>
+            </div>*@
+        </div>
+    </div>
+</body>
+</html>

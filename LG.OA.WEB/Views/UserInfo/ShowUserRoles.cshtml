@@ -1,0 +1,82 @@
+﻿@using LG.OA.Model
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowUserRoles</title> 
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/datapattern.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+        function SubForm() {
+            $("#addRoleInfosForm").submit();
+        }
+        
+        $(function () {
+        });
+
+        function AddRoleInfoOnSuccess(data) {
+            window.parent.AddRoleInfoOnSuccess(data);
+        }
+    </script>
+
+
+</head>
+<body>
+    <div>
+        为 @{
+            UserInfo user = ViewBag.User;
+            <span style="font-size:20px;font-weight:bold;color:red">@user.UName</span>
+        }
+        用户分配角色
+        <br />
+        @using (Ajax.BeginForm("DistributeUserRole", "RoleInfo", new { }, new AjaxOptions { OnSuccess = "AddRoleInfoOnSuccess" }, new { id = "addRoleInfosForm" }))
+        {
+            List<RoleInfo> userRoles = ViewBag.UserRoles as List<RoleInfo>;
+            List<RoleInfo> allRoles = ViewBag.AllRoles as List<RoleInfo>;
+            <input type="hidden" name="uid" value="@user.ID" />
+            <table border="1">
+                <tr>
+                    <th>选择</th>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>备注</th>
+                    <th>修改日期</th>
+                    <th>创建日期</th>
+                </tr>
+
+                @foreach (RoleInfo role in allRoles)
+                {
+                    <tr>
+                        @if (userRoles != null && userRoles.Contains(role))
+                        {
+                            <td><input type="checkbox" name="chk_@role.ID" value="" checked="checked" /></td>
+                        }
+                        else
+                        {
+                            <td><input type="checkbox" name="chk_@role.ID" value=""   /></td>
+                        }
+
+                        <td>@role.ID</td>
+                        <td>@role.RoleName</td>
+                        <td>@role.Remark</td>
+                        <td>@role.ModfiedOn</td>
+                        <td>@role.SubTime</td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</body>
+</html>
+
+
+

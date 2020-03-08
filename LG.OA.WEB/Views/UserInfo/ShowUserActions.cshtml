@@ -1,0 +1,132 @@
+﻿@using LG.OA.Model
+@{
+    Layout = null;
+}
+@{UserInfo user = ViewBag.User;}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowUserRoles</title>
+    <link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+    <link href="~/Content/tableStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/datapattern.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+        $(function () {
+            BindRadioClickEvent();
+            BindButtonClickEvnet();
+        });
+        function BindRadioClickEvent() {
+            $("input[type='radio']").click(function () {
+                var radoId = $(this).attr("id");
+                var hasPermission = false;
+                var name = radoId.split("_")[0];
+                var aid = radoId.split("_")[1];
+                if (name == "rdo") {
+                    hasPermission = true;
+                } else {
+                    hasPermission = false;
+                }
+                    $.post("/ActionInfo/DistributeUserAction", {"uid":@user.ID,"aid":aid,"ispass":hasPermission}, function (data) {
+                       window.parent.AddActionInfoOnSuccess(data);
+                    })
+                })
+        }
+        function BindButtonClickEvnet() {
+            $("input[type='button']").click(function () {
+                var btnId = $(this).attr("id");
+                var aid = btnId.split("_")[1];
+            var $control=$(this)
+                
+                $.post("/ActionInfo/CancelUserAction", { "aid": aid }, function (data) {
+                    if (data == "ok") {
+                        $control.parent().find("input[type='radio']").removeAttr("checked");
+                    }
+                    window.parent.AddActionInfoOnSuccess(data);
+                })
+            });
+        }
+ 
+
+
+    </script>
+
+
+</head>
+<body>
+    <div>
+        为 @{
+            <span style="font-size:20px;font-weight:bold;color:red">@user.UName</span>
+        }
+        用户分配权限
+        <br />
+        <table>
+            <tr>
+                <th>编号</th>
+                <th>权限名称</th>
+                <th>Url</th>
+                <th>HttpMethod</th>
+                <th>操作</th>
+            </tr>
+            @{
+                List<R_UserInfo_ActionInfo> userActions = ViewBag.UserActions as List<R_UserInfo_ActionInfo>;
+                List<ActionInfo> allActions = ViewBag.AllActions as List<ActionInfo>;
+                foreach (ActionInfo action in allActions)
+                {
+                    <tr>
+                        <td>@action.ID</td>
+                        <td>@action.ActionName</td>
+                        <td>@action.Url</td>
+                        <td>@action.HttpMethd</td>
+                        <td>
+                            @{
+                                var existAction = userActions.Where(o => action.ID == o.ActionInfoID).FirstOrDefault();
+                                if (existAction != null)
+                                {
+                                    if (existAction.HasPermission)
+                                    {
+                                        <label for="rdo_@action.ID">允许</label>
+                                        <input type="radio" name="rdo_@action.ID" value="" checked="checked" id="rdo_@action.ID" />
+                                        <label for="nordo_@action.ID">禁止</label>
+                                        <input type="radio" name="rdo_@action.ID" value="" id="nordo_@action.ID" />
+                                    }
+                                    else
+                                    {
+                                        <label for="rdo_@action.ID">允许</label>
+                                        <input type="radio" name="rdo_@action.ID" value="" id="rdo_@action.ID" />
+                                        <label for="nordo_@action.ID">禁止</label>
+                                        <input type="radio" name="rdo_@action.ID" value="" checked="checked" id="nordo_@action.ID" />
+                                    }
+                                }
+                                else
+                                {
+                                    <label for="rdo_@action.ID">允许</label>
+                                    <input type="radio" name="rdo_@action.ID" value="" id="rdo_@action.ID" />
+                                    <label for="nordo_@action.ID">禁止</label>
+                                    <input type="radio" name="rdo_@action.ID" value="" id="nordo_@action.ID" />
+                                }
+                                <input type="button" id="btn_@action.ID"  name="btnCancel" value="撤销" />
+                            }
+                        </td>
+                    </tr>
+                }
+
+            }
+            @*ViewBag.User = userInfo;
+                ViewBag.UserActions = userActionInfos;
+                ViewBag.AllActions = allActionInfos;*@
+        </table>
+
+    </div>
+</body>
+</html>
+
+
+

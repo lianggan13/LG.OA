@@ -1,0 +1,1558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OADBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActionInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubTime" Type="datetime" Nullable="false" />
+          <Property Name="ModfiedOn" Type="datetime" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="64" />
+          <Property Name="DelFlag" Type="smallint" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="HttpMethd" Type="nvarchar" MaxLength="32" />
+          <Property Name="ActionName" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="IsMenu" Type="bit" Nullable="false" />
+          <Property Name="MenuIcon" Type="nvarchar" MaxLength="512" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FileInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="32" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
+          <Property Name="FileSize" Type="nvarchar" MaxLength="32" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="64" />
+          <Property Name="DelFlag" Type="smallint" Nullable="false" />
+          <Property Name="SubTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="64" />
+          <Property Name="UserInfoID" Type="int" Nullable="false" />
+          <Property Name="DelFlag" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R_UserInfo_ActionInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HasPermission" Type="bit" Nullable="false" />
+          <Property Name="UserInfoID" Type="int" Nullable="false" />
+          <Property Name="ActionInfoID" Type="int" Nullable="false" />
+          <Property Name="DelFlag" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="SubTime" Type="datetime" Nullable="false" />
+          <Property Name="ModfiedOn" Type="datetime" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="64" />
+          <Property Name="DelFlag" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleInfoActionInfo">
+          <Key>
+            <PropertyRef Name="RoleInfo_ID" />
+            <PropertyRef Name="ActionInfo_ID" />
+          </Key>
+          <Property Name="RoleInfo_ID" Type="int" Nullable="false" />
+          <Property Name="ActionInfo_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UName" Type="nvarchar" MaxLength="32" />
+          <Property Name="Pwd" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="ShowName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="DelFlag" Type="smallint" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="64" />
+          <Property Name="ModfiedOn" Type="datetime" Nullable="false" />
+          <Property Name="SubTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfoExt">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserInfoId" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="DelFlag" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfoRoleInfo">
+          <Key>
+            <PropertyRef Name="UserInfo_ID" />
+            <PropertyRef Name="RoleInfo_ID" />
+          </Key>
+          <Property Name="UserInfo_ID" Type="int" Nullable="false" />
+          <Property Name="RoleInfo_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WF_Instance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstanceName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="StartBy" Type="int" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="Level" Type="smallint" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="128" />
+          <Property Name="DelFlag" Type="smallint" Nullable="false" />
+          <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="WFInstanceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WF_TempID" Type="int" Nullable="false" />
+          <Property Name="Status" Type="smallint" />
+        </EntityType>
+        <EntityType Name="WF_InstanceFileInfo">
+          <Key>
+            <PropertyRef Name="WF_Instance_ID" />
+            <PropertyRef Name="FileInfo_ID" />
+          </Key>
+          <Property Name="WF_Instance_ID" Type="int" Nullable="false" />
+          <Property Name="FileInfo_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WF_Step">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StepName" Type="nvarchar" MaxLength="32" />
+          <Property Name="ProcessBy" Type="int" Nullable="false" />
+          <Property Name="SubTime" Type="datetime" Nullable="false" />
+          <Property Name="ProcessTime" Type="datetime" Nullable="false" />
+          <Property Name="ProcessResult" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="PorcessComment" Type="nvarchar" MaxLength="256" />
+          <Property Name="StepStatus" Type="smallint" Nullable="false" />
+          <Property Name="IsStartStep" Type="bit" Nullable="false" />
+          <Property Name="IsEndStep" Type="bit" Nullable="false" />
+          <Property Name="ParentStepId" Type="int" Nullable="false" />
+          <Property Name="WF_InstanceID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WF_Temp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TepName" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="TempForm" Type="nvarchar(max)" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="64" />
+          <Property Name="DelFlag" Type="smallint" Nullable="false" />
+          <Property Name="SubTime" Type="datetime" Nullable="false" />
+          <Property Name="ActityType" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Heima8OADb.System.Activities.DurableInstancing.DefinitionIdentityTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="DefinitionIdentityTable">
+          <Key>
+            <PropertyRef Name="SurrogateIdentityId" />
+            <PropertyRef Name="DefinitionIdentityHash" />
+            <PropertyRef Name="DefinitionIdentityAnyRevisionHash" />
+          </Key>
+          <Property Name="SurrogateIdentityId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DefinitionIdentityHash" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DefinitionIdentityAnyRevisionHash" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Package" Type="nvarchar(max)" />
+          <Property Name="Build" Type="bigint" />
+          <Property Name="Major" Type="bigint" />
+          <Property Name="Minor" Type="bigint" />
+          <Property Name="Revision" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Heima8OADb.System.Activities.DurableInstancing.IdentityOwnerTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="IdentityOwnerTable">
+          <Key>
+            <PropertyRef Name="SurrogateIdentityId" />
+            <PropertyRef Name="SurrogateLockOwnerId" />
+          </Key>
+          <Property Name="SurrogateIdentityId" Type="bigint" Nullable="false" />
+          <Property Name="SurrogateLockOwnerId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Heima8OADb.System.Activities.DurableInstancing.InstanceMetadataChangesTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="InstanceMetadataChangesTable">
+          <Key>
+            <PropertyRef Name="SurrogateInstanceId" />
+            <PropertyRef Name="ChangeTime" />
+            <PropertyRef Name="EncodingOption" />
+            <PropertyRef Name="Change" />
+          </Key>
+          <Property Name="SurrogateInstanceId" Type="bigint" Nullable="false" />
+          <Property Name="ChangeTime" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EncodingOption" Type="tinyint" Nullable="false" />
+          <Property Name="Change" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value1”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value2”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value3”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value4”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value5”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value6”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value7”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value8”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value9”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value10”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value11”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value12”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value13”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value14”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value15”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value16”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value17”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value18”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value19”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value20”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value21”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value22”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value23”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value24”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value25”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value26”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value27”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value28”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value29”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value30”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value31”。
+警告 6005: 目标实体框架版本目前不支持数据类型“sql_variant”；已排除表“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”中的列“Value32”。
+警告 6002: 表/视图“Heima8OADb.System.Activities.DurableInstancing.InstancePromotedPropertiesTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="InstancePromotedPropertiesTable">
+          <Key>
+            <PropertyRef Name="SurrogateInstanceId" />
+            <PropertyRef Name="PromotionName" />
+          </Key>
+          <Property Name="SurrogateInstanceId" Type="bigint" Nullable="false" />
+          <Property Name="PromotionName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="Value33" Type="varbinary(max)" />
+          <Property Name="Value34" Type="varbinary(max)" />
+          <Property Name="Value35" Type="varbinary(max)" />
+          <Property Name="Value36" Type="varbinary(max)" />
+          <Property Name="Value37" Type="varbinary(max)" />
+          <Property Name="Value38" Type="varbinary(max)" />
+          <Property Name="Value39" Type="varbinary(max)" />
+          <Property Name="Value40" Type="varbinary(max)" />
+          <Property Name="Value41" Type="varbinary(max)" />
+          <Property Name="Value42" Type="varbinary(max)" />
+          <Property Name="Value43" Type="varbinary(max)" />
+          <Property Name="Value44" Type="varbinary(max)" />
+          <Property Name="Value45" Type="varbinary(max)" />
+          <Property Name="Value46" Type="varbinary(max)" />
+          <Property Name="Value47" Type="varbinary(max)" />
+          <Property Name="Value48" Type="varbinary(max)" />
+          <Property Name="Value49" Type="varbinary(max)" />
+          <Property Name="Value50" Type="varbinary(max)" />
+          <Property Name="Value51" Type="varbinary(max)" />
+          <Property Name="Value52" Type="varbinary(max)" />
+          <Property Name="Value53" Type="varbinary(max)" />
+          <Property Name="Value54" Type="varbinary(max)" />
+          <Property Name="Value55" Type="varbinary(max)" />
+          <Property Name="Value56" Type="varbinary(max)" />
+          <Property Name="Value57" Type="varbinary(max)" />
+          <Property Name="Value58" Type="varbinary(max)" />
+          <Property Name="Value59" Type="varbinary(max)" />
+          <Property Name="Value60" Type="varbinary(max)" />
+          <Property Name="Value61" Type="varbinary(max)" />
+          <Property Name="Value62" Type="varbinary(max)" />
+          <Property Name="Value63" Type="varbinary(max)" />
+          <Property Name="Value64" Type="varbinary(max)" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Heima8OADb.System.Activities.DurableInstancing.InstancesTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="InstancesTable">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SurrogateInstanceId" />
+            <PropertyRef Name="Version" />
+            <PropertyRef Name="CreationTime" />
+            <PropertyRef Name="SurrogateIdentityId" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SurrogateInstanceId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurrogateLockOwnerId" Type="bigint" />
+          <Property Name="PrimitiveDataProperties" Type="varbinary(max)" />
+          <Property Name="ComplexDataProperties" Type="varbinary(max)" />
+          <Property Name="WriteOnlyPrimitiveDataProperties" Type="varbinary(max)" />
+          <Property Name="WriteOnlyComplexDataProperties" Type="varbinary(max)" />
+          <Property Name="MetadataProperties" Type="varbinary(max)" />
+          <Property Name="DataEncodingOption" Type="tinyint" />
+          <Property Name="MetadataEncodingOption" Type="tinyint" />
+          <Property Name="Version" Type="bigint" Nullable="false" />
+          <Property Name="PendingTimer" Type="datetime" />
+          <Property Name="CreationTime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" />
+          <Property Name="WorkflowHostType" Type="uniqueidentifier" />
+          <Property Name="ServiceDeploymentId" Type="bigint" />
+          <Property Name="SuspensionExceptionName" Type="nvarchar" MaxLength="450" />
+          <Property Name="SuspensionReason" Type="nvarchar(max)" />
+          <Property Name="BlockingBookmarks" Type="nvarchar(max)" />
+          <Property Name="LastMachineRunOn" Type="nvarchar" MaxLength="450" />
+          <Property Name="ExecutionStatus" Type="nvarchar" MaxLength="450" />
+          <Property Name="IsInitialized" Type="bit" />
+          <Property Name="IsSuspended" Type="bit" />
+          <Property Name="IsReadyToRun" Type="bit" />
+          <Property Name="IsCompleted" Type="bit" />
+          <Property Name="SurrogateIdentityId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Heima8OADb.System.Activities.DurableInstancing.KeysTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="KeysTable">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SurrogateKeyId" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SurrogateKeyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurrogateInstanceId" Type="bigint" />
+          <Property Name="EncodingOption" Type="tinyint" />
+          <Property Name="Properties" Type="varbinary(max)" />
+          <Property Name="IsAssociated" Type="bit" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Heima8OADb.System.Activities.DurableInstancing.LockOwnersTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="LockOwnersTable">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SurrogateLockOwnerId" />
+            <PropertyRef Name="LockExpiration" />
+            <PropertyRef Name="MachineName" />
+            <PropertyRef Name="EnqueueCommand" />
+            <PropertyRef Name="DeletesInstanceOnCompletion" />
+            <PropertyRef Name="WorkflowIdentityFilter" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SurrogateLockOwnerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LockExpiration" Type="datetime" Nullable="false" />
+          <Property Name="WorkflowHostType" Type="uniqueidentifier" />
+          <Property Name="MachineName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="EnqueueCommand" Type="bit" Nullable="false" />
+          <Property Name="DeletesInstanceOnCompletion" Type="bit" Nullable="false" />
+          <Property Name="PrimitiveLockOwnerData" Type="varbinary(max)" />
+          <Property Name="ComplexLockOwnerData" Type="varbinary(max)" />
+          <Property Name="WriteOnlyPrimitiveLockOwnerData" Type="varbinary(max)" />
+          <Property Name="WriteOnlyComplexLockOwnerData" Type="varbinary(max)" />
+          <Property Name="EncodingOption" Type="tinyint" />
+          <Property Name="WorkflowIdentityFilter" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Heima8OADb.System.Activities.DurableInstancing.RunnableInstancesTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="RunnableInstancesTable">
+          <Key>
+            <PropertyRef Name="SurrogateInstanceId" />
+            <PropertyRef Name="RunnableTime" />
+            <PropertyRef Name="SurrogateIdentityId" />
+          </Key>
+          <Property Name="SurrogateInstanceId" Type="bigint" Nullable="false" />
+          <Property Name="WorkflowHostType" Type="uniqueidentifier" />
+          <Property Name="ServiceDeploymentId" Type="bigint" />
+          <Property Name="RunnableTime" Type="datetime" Nullable="false" />
+          <Property Name="SurrogateIdentityId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Heima8OADb.System.Activities.DurableInstancing.ServiceDeploymentsTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="ServiceDeploymentsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="ServiceDeploymentHash" />
+            <PropertyRef Name="SiteName" />
+            <PropertyRef Name="RelativeServicePath" />
+            <PropertyRef Name="RelativeApplicationPath" />
+            <PropertyRef Name="ServiceName" />
+            <PropertyRef Name="ServiceNamespace" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceDeploymentHash" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SiteName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RelativeServicePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RelativeApplicationPath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ServiceName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ServiceNamespace" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“Heima8OADb.System.Activities.DurableInstancing.SqlWorkflowInstanceStoreVersionTable”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="SqlWorkflowInstanceStoreVersionTable">
+          <Property Name="Major" Type="bigint" />
+          <Property Name="Minor" Type="bigint" />
+          <Property Name="Build" Type="bigint" />
+          <Property Name="Revision" Type="bigint" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>-->
+        <Association Name="FK_ActionInfoR_UserInfo_ActionInfo">
+          <End Role="ActionInfo" Type="Self.ActionInfo" Multiplicity="1" />
+          <End Role="R_UserInfo_ActionInfo" Type="Self.R_UserInfo_ActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_UserInfo_ActionInfo">
+              <PropertyRef Name="ActionInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleInfoActionInfo_ActionInfo">
+          <End Role="ActionInfo" Type="Self.ActionInfo" Multiplicity="1" />
+          <End Role="RoleInfoActionInfo" Type="Self.RoleInfoActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RoleInfoActionInfo">
+              <PropertyRef Name="ActionInfo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleInfoActionInfo_RoleInfo">
+          <End Role="RoleInfo" Type="Self.RoleInfo" Multiplicity="1" />
+          <End Role="RoleInfoActionInfo" Type="Self.RoleInfoActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RoleInfoActionInfo">
+              <PropertyRef Name="RoleInfo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfoOrderInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="UserInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfoR_UserInfo_ActionInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="R_UserInfo_ActionInfo" Type="Self.R_UserInfo_ActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_UserInfo_ActionInfo">
+              <PropertyRef Name="UserInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfoRoleInfo_RoleInfo">
+          <End Role="RoleInfo" Type="Self.RoleInfo" Multiplicity="1" />
+          <End Role="UserInfoRoleInfo" Type="Self.UserInfoRoleInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserInfoRoleInfo">
+              <PropertyRef Name="RoleInfo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfoRoleInfo_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="UserInfoRoleInfo" Type="Self.UserInfoRoleInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserInfoRoleInfo">
+              <PropertyRef Name="UserInfo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WF_InstanceFileInfo_FileInfo">
+          <End Role="FileInfo" Type="Self.FileInfo" Multiplicity="1" />
+          <End Role="WF_InstanceFileInfo" Type="Self.WF_InstanceFileInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WF_InstanceFileInfo">
+              <PropertyRef Name="FileInfo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WF_InstanceFileInfo_WF_Instance">
+          <End Role="WF_Instance" Type="Self.WF_Instance" Multiplicity="1" />
+          <End Role="WF_InstanceFileInfo" Type="Self.WF_InstanceFileInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WF_Instance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WF_InstanceFileInfo">
+              <PropertyRef Name="WF_Instance_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WF_InstanceWF_Step">
+          <End Role="WF_Instance" Type="Self.WF_Instance" Multiplicity="1" />
+          <End Role="WF_Step" Type="Self.WF_Step" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WF_Instance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WF_Step">
+              <PropertyRef Name="WF_InstanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WF_TempWF_Instance">
+          <End Role="WF_Temp" Type="Self.WF_Temp" Multiplicity="1" />
+          <End Role="WF_Instance" Type="Self.WF_Instance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WF_Temp">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WF_Instance">
+              <PropertyRef Name="WF_TempID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OADBModelStoreContainer">
+          <EntitySet Name="ActionInfo" EntityType="Self.ActionInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileInfo" EntityType="Self.FileInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuInfo" EntityType="Self.MenuInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderInfo" EntityType="Self.OrderInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R_UserInfo_ActionInfo" EntityType="Self.R_UserInfo_ActionInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleInfo" EntityType="Self.RoleInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleInfoActionInfo" EntityType="Self.RoleInfoActionInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfoExt" EntityType="Self.UserInfoExt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfoRoleInfo" EntityType="Self.UserInfoRoleInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WF_Instance" EntityType="Self.WF_Instance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WF_InstanceFileInfo" EntityType="Self.WF_InstanceFileInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WF_Step" EntityType="Self.WF_Step" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WF_Temp" EntityType="Self.WF_Temp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DefinitionIdentityTable" EntityType="Self.DefinitionIdentityTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing">
+            <DefiningQuery>SELECT 
+[DefinitionIdentityTable].[SurrogateIdentityId] AS [SurrogateIdentityId], 
+[DefinitionIdentityTable].[DefinitionIdentityHash] AS [DefinitionIdentityHash], 
+[DefinitionIdentityTable].[DefinitionIdentityAnyRevisionHash] AS [DefinitionIdentityAnyRevisionHash], 
+[DefinitionIdentityTable].[Name] AS [Name], 
+[DefinitionIdentityTable].[Package] AS [Package], 
+[DefinitionIdentityTable].[Build] AS [Build], 
+[DefinitionIdentityTable].[Major] AS [Major], 
+[DefinitionIdentityTable].[Minor] AS [Minor], 
+[DefinitionIdentityTable].[Revision] AS [Revision]
+FROM [System.Activities.DurableInstancing].[DefinitionIdentityTable] AS [DefinitionIdentityTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="IdentityOwnerTable" EntityType="Self.IdentityOwnerTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing">
+            <DefiningQuery>SELECT 
+[IdentityOwnerTable].[SurrogateIdentityId] AS [SurrogateIdentityId], 
+[IdentityOwnerTable].[SurrogateLockOwnerId] AS [SurrogateLockOwnerId]
+FROM [System.Activities.DurableInstancing].[IdentityOwnerTable] AS [IdentityOwnerTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="InstanceMetadataChangesTable" EntityType="Self.InstanceMetadataChangesTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing">
+            <DefiningQuery>SELECT 
+[InstanceMetadataChangesTable].[SurrogateInstanceId] AS [SurrogateInstanceId], 
+[InstanceMetadataChangesTable].[ChangeTime] AS [ChangeTime], 
+[InstanceMetadataChangesTable].[EncodingOption] AS [EncodingOption], 
+[InstanceMetadataChangesTable].[Change] AS [Change]
+FROM [System.Activities.DurableInstancing].[InstanceMetadataChangesTable] AS [InstanceMetadataChangesTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="InstancePromotedPropertiesTable" EntityType="Self.InstancePromotedPropertiesTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing">
+            <DefiningQuery>SELECT 
+[InstancePromotedPropertiesTable].[SurrogateInstanceId] AS [SurrogateInstanceId], 
+[InstancePromotedPropertiesTable].[PromotionName] AS [PromotionName], 
+[InstancePromotedPropertiesTable].[Value33] AS [Value33], 
+[InstancePromotedPropertiesTable].[Value34] AS [Value34], 
+[InstancePromotedPropertiesTable].[Value35] AS [Value35], 
+[InstancePromotedPropertiesTable].[Value36] AS [Value36], 
+[InstancePromotedPropertiesTable].[Value37] AS [Value37], 
+[InstancePromotedPropertiesTable].[Value38] AS [Value38], 
+[InstancePromotedPropertiesTable].[Value39] AS [Value39], 
+[InstancePromotedPropertiesTable].[Value40] AS [Value40], 
+[InstancePromotedPropertiesTable].[Value41] AS [Value41], 
+[InstancePromotedPropertiesTable].[Value42] AS [Value42], 
+[InstancePromotedPropertiesTable].[Value43] AS [Value43], 
+[InstancePromotedPropertiesTable].[Value44] AS [Value44], 
+[InstancePromotedPropertiesTable].[Value45] AS [Value45], 
+[InstancePromotedPropertiesTable].[Value46] AS [Value46], 
+[InstancePromotedPropertiesTable].[Value47] AS [Value47], 
+[InstancePromotedPropertiesTable].[Value48] AS [Value48], 
+[InstancePromotedPropertiesTable].[Value49] AS [Value49], 
+[InstancePromotedPropertiesTable].[Value50] AS [Value50], 
+[InstancePromotedPropertiesTable].[Value51] AS [Value51], 
+[InstancePromotedPropertiesTable].[Value52] AS [Value52], 
+[InstancePromotedPropertiesTable].[Value53] AS [Value53], 
+[InstancePromotedPropertiesTable].[Value54] AS [Value54], 
+[InstancePromotedPropertiesTable].[Value55] AS [Value55], 
+[InstancePromotedPropertiesTable].[Value56] AS [Value56], 
+[InstancePromotedPropertiesTable].[Value57] AS [Value57], 
+[InstancePromotedPropertiesTable].[Value58] AS [Value58], 
+[InstancePromotedPropertiesTable].[Value59] AS [Value59], 
+[InstancePromotedPropertiesTable].[Value60] AS [Value60], 
+[InstancePromotedPropertiesTable].[Value61] AS [Value61], 
+[InstancePromotedPropertiesTable].[Value62] AS [Value62], 
+[InstancePromotedPropertiesTable].[Value63] AS [Value63], 
+[InstancePromotedPropertiesTable].[Value64] AS [Value64]
+FROM [System.Activities.DurableInstancing].[InstancePromotedPropertiesTable] AS [InstancePromotedPropertiesTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="InstancesTable" EntityType="Self.InstancesTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing">
+            <DefiningQuery>SELECT 
+[InstancesTable].[Id] AS [Id], 
+[InstancesTable].[SurrogateInstanceId] AS [SurrogateInstanceId], 
+[InstancesTable].[SurrogateLockOwnerId] AS [SurrogateLockOwnerId], 
+[InstancesTable].[PrimitiveDataProperties] AS [PrimitiveDataProperties], 
+[InstancesTable].[ComplexDataProperties] AS [ComplexDataProperties], 
+[InstancesTable].[WriteOnlyPrimitiveDataProperties] AS [WriteOnlyPrimitiveDataProperties], 
+[InstancesTable].[WriteOnlyComplexDataProperties] AS [WriteOnlyComplexDataProperties], 
+[InstancesTable].[MetadataProperties] AS [MetadataProperties], 
+[InstancesTable].[DataEncodingOption] AS [DataEncodingOption], 
+[InstancesTable].[MetadataEncodingOption] AS [MetadataEncodingOption], 
+[InstancesTable].[Version] AS [Version], 
+[InstancesTable].[PendingTimer] AS [PendingTimer], 
+[InstancesTable].[CreationTime] AS [CreationTime], 
+[InstancesTable].[LastUpdated] AS [LastUpdated], 
+[InstancesTable].[WorkflowHostType] AS [WorkflowHostType], 
+[InstancesTable].[ServiceDeploymentId] AS [ServiceDeploymentId], 
+[InstancesTable].[SuspensionExceptionName] AS [SuspensionExceptionName], 
+[InstancesTable].[SuspensionReason] AS [SuspensionReason], 
+[InstancesTable].[BlockingBookmarks] AS [BlockingBookmarks], 
+[InstancesTable].[LastMachineRunOn] AS [LastMachineRunOn], 
+[InstancesTable].[ExecutionStatus] AS [ExecutionStatus], 
+[InstancesTable].[IsInitialized] AS [IsInitialized], 
+[InstancesTable].[IsSuspended] AS [IsSuspended], 
+[InstancesTable].[IsReadyToRun] AS [IsReadyToRun], 
+[InstancesTable].[IsCompleted] AS [IsCompleted], 
+[InstancesTable].[SurrogateIdentityId] AS [SurrogateIdentityId]
+FROM [System.Activities.DurableInstancing].[InstancesTable] AS [InstancesTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="KeysTable" EntityType="Self.KeysTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing">
+            <DefiningQuery>SELECT 
+[KeysTable].[Id] AS [Id], 
+[KeysTable].[SurrogateKeyId] AS [SurrogateKeyId], 
+[KeysTable].[SurrogateInstanceId] AS [SurrogateInstanceId], 
+[KeysTable].[EncodingOption] AS [EncodingOption], 
+[KeysTable].[Properties] AS [Properties], 
+[KeysTable].[IsAssociated] AS [IsAssociated]
+FROM [System.Activities.DurableInstancing].[KeysTable] AS [KeysTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LockOwnersTable" EntityType="Self.LockOwnersTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing">
+            <DefiningQuery>SELECT 
+[LockOwnersTable].[Id] AS [Id], 
+[LockOwnersTable].[SurrogateLockOwnerId] AS [SurrogateLockOwnerId], 
+[LockOwnersTable].[LockExpiration] AS [LockExpiration], 
+[LockOwnersTable].[WorkflowHostType] AS [WorkflowHostType], 
+[LockOwnersTable].[MachineName] AS [MachineName], 
+[LockOwnersTable].[EnqueueCommand] AS [EnqueueCommand], 
+[LockOwnersTable].[DeletesInstanceOnCompletion] AS [DeletesInstanceOnCompletion], 
+[LockOwnersTable].[PrimitiveLockOwnerData] AS [PrimitiveLockOwnerData], 
+[LockOwnersTable].[ComplexLockOwnerData] AS [ComplexLockOwnerData], 
+[LockOwnersTable].[WriteOnlyPrimitiveLockOwnerData] AS [WriteOnlyPrimitiveLockOwnerData], 
+[LockOwnersTable].[WriteOnlyComplexLockOwnerData] AS [WriteOnlyComplexLockOwnerData], 
+[LockOwnersTable].[EncodingOption] AS [EncodingOption], 
+[LockOwnersTable].[WorkflowIdentityFilter] AS [WorkflowIdentityFilter]
+FROM [System.Activities.DurableInstancing].[LockOwnersTable] AS [LockOwnersTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RunnableInstancesTable" EntityType="Self.RunnableInstancesTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing">
+            <DefiningQuery>SELECT 
+[RunnableInstancesTable].[SurrogateInstanceId] AS [SurrogateInstanceId], 
+[RunnableInstancesTable].[WorkflowHostType] AS [WorkflowHostType], 
+[RunnableInstancesTable].[ServiceDeploymentId] AS [ServiceDeploymentId], 
+[RunnableInstancesTable].[RunnableTime] AS [RunnableTime], 
+[RunnableInstancesTable].[SurrogateIdentityId] AS [SurrogateIdentityId]
+FROM [System.Activities.DurableInstancing].[RunnableInstancesTable] AS [RunnableInstancesTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ServiceDeploymentsTable" EntityType="Self.ServiceDeploymentsTable" store:Type="Tables" store:Schema="System.Activities.DurableInstancing">
+            <DefiningQuery>SELECT 
+[ServiceDeploymentsTable].[Id] AS [Id], 
+[ServiceDeploymentsTable].[ServiceDeploymentHash] AS [ServiceDeploymentHash], 
+[ServiceDeploymentsTable].[SiteName] AS [SiteName], 
+[ServiceDeploymentsTable].[RelativeServicePath] AS [RelativeServicePath], 
+[ServiceDeploymentsTable].[RelativeApplicationPath] AS [RelativeApplicationPath], 
+[ServiceDeploymentsTable].[ServiceName] AS [ServiceName], 
+[ServiceDeploymentsTable].[ServiceNamespace] AS [ServiceNamespace]
+FROM [System.Activities.DurableInstancing].[ServiceDeploymentsTable] AS [ServiceDeploymentsTable]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ActionInfoR_UserInfo_ActionInfo" Association="Self.FK_ActionInfoR_UserInfo_ActionInfo">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleInfoActionInfo_ActionInfo" Association="Self.FK_RoleInfoActionInfo_ActionInfo">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="RoleInfoActionInfo" EntitySet="RoleInfoActionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleInfoActionInfo_RoleInfo" Association="Self.FK_RoleInfoActionInfo_RoleInfo">
+            <End Role="RoleInfo" EntitySet="RoleInfo" />
+            <End Role="RoleInfoActionInfo" EntitySet="RoleInfoActionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfoOrderInfo" Association="Self.FK_UserInfoOrderInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfoR_UserInfo_ActionInfo" Association="Self.FK_UserInfoR_UserInfo_ActionInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfoRoleInfo_RoleInfo" Association="Self.FK_UserInfoRoleInfo_RoleInfo">
+            <End Role="RoleInfo" EntitySet="RoleInfo" />
+            <End Role="UserInfoRoleInfo" EntitySet="UserInfoRoleInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfoRoleInfo_UserInfo" Association="Self.FK_UserInfoRoleInfo_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserInfoRoleInfo" EntitySet="UserInfoRoleInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WF_InstanceFileInfo_FileInfo" Association="Self.FK_WF_InstanceFileInfo_FileInfo">
+            <End Role="FileInfo" EntitySet="FileInfo" />
+            <End Role="WF_InstanceFileInfo" EntitySet="WF_InstanceFileInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WF_InstanceFileInfo_WF_Instance" Association="Self.FK_WF_InstanceFileInfo_WF_Instance">
+            <End Role="WF_Instance" EntitySet="WF_Instance" />
+            <End Role="WF_InstanceFileInfo" EntitySet="WF_InstanceFileInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WF_InstanceWF_Step" Association="Self.FK_WF_InstanceWF_Step">
+            <End Role="WF_Instance" EntitySet="WF_Instance" />
+            <End Role="WF_Step" EntitySet="WF_Step" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WF_TempWF_Instance" Association="Self.FK_WF_TempWF_Instance">
+            <End Role="WF_Temp" EntitySet="WF_Temp" />
+            <End Role="WF_Instance" EntitySet="WF_Instance" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OADBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActionInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModfiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HttpMethd" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ActionName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsMenu" Type="Boolean" Nullable="false" />
+          <Property Name="MenuIcon" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="R_UserInfo_ActionInfo" Relationship="Self.FK_ActionInfoR_UserInfo_ActionInfo" FromRole="ActionInfo" ToRole="R_UserInfo_ActionInfo" />
+          <NavigationProperty Name="RoleInfo" Relationship="Self.RoleInfoActionInfo" FromRole="ActionInfo" ToRole="RoleInfo" />
+        </EntityType>
+        <EntityType Name="FileInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileType" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileSize" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="WF_Instance" Relationship="Self.WF_InstanceFileInfo" FromRole="FileInfo" ToRole="WF_Instance" />
+        </EntityType>
+        <EntityType Name="MenuInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="OrderInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="UserInfoID" Type="Int32" Nullable="false" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_UserInfoOrderInfo" FromRole="OrderInfo" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="R_UserInfo_ActionInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HasPermission" Type="Boolean" Nullable="false" />
+          <Property Name="UserInfoID" Type="Int32" Nullable="false" />
+          <Property Name="ActionInfoID" Type="Int32" Nullable="false" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="ActionInfo" Relationship="Self.FK_ActionInfoR_UserInfo_ActionInfo" FromRole="R_UserInfo_ActionInfo" ToRole="ActionInfo" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_UserInfoR_UserInfo_ActionInfo" FromRole="R_UserInfo_ActionInfo" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="RoleInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModfiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="ActionInfo" Relationship="Self.RoleInfoActionInfo" FromRole="RoleInfo" ToRole="ActionInfo" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.UserInfoRoleInfo" FromRole="RoleInfo" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Pwd" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShowName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ModfiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OrderInfo" Relationship="Self.FK_UserInfoOrderInfo" FromRole="UserInfo" ToRole="OrderInfo" />
+          <NavigationProperty Name="R_UserInfo_ActionInfo" Relationship="Self.FK_UserInfoR_UserInfo_ActionInfo" FromRole="UserInfo" ToRole="R_UserInfo_ActionInfo" />
+          <NavigationProperty Name="RoleInfo" Relationship="Self.UserInfoRoleInfo" FromRole="UserInfo" ToRole="RoleInfo" />
+        </EntityType>
+        <EntityType Name="UserInfoExt">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserInfoId" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WF_Instance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstanceName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartBy" Type="Int32" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Level" Type="Int16" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WFInstanceId" Type="Guid" Nullable="false" />
+          <Property Name="WF_TempID" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int16" />
+          <NavigationProperty Name="WF_Step" Relationship="Self.FK_WF_InstanceWF_Step" FromRole="WF_Instance" ToRole="WF_Step" />
+          <NavigationProperty Name="WF_Temp" Relationship="Self.FK_WF_TempWF_Instance" FromRole="WF_Instance" ToRole="WF_Temp" />
+          <NavigationProperty Name="FileInfo" Relationship="Self.WF_InstanceFileInfo" FromRole="WF_Instance" ToRole="FileInfo" />
+        </EntityType>
+        <EntityType Name="WF_Step">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StepName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessBy" Type="Int32" Nullable="false" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProcessTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProcessResult" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PorcessComment" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="StepStatus" Type="Int16" Nullable="false" />
+          <Property Name="IsStartStep" Type="Boolean" Nullable="false" />
+          <Property Name="IsEndStep" Type="Boolean" Nullable="false" />
+          <Property Name="ParentStepId" Type="Int32" Nullable="false" />
+          <Property Name="WF_InstanceID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WF_Instance" Relationship="Self.FK_WF_InstanceWF_Step" FromRole="WF_Step" ToRole="WF_Instance" />
+        </EntityType>
+        <EntityType Name="WF_Temp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TepName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TempForm" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActityType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WF_Instance" Relationship="Self.FK_WF_TempWF_Instance" FromRole="WF_Temp" ToRole="WF_Instance" />
+        </EntityType>
+        <EntityType Name="DefinitionIdentityTable">
+          <Key>
+            <PropertyRef Name="SurrogateIdentityId" />
+            <PropertyRef Name="DefinitionIdentityHash" />
+            <PropertyRef Name="DefinitionIdentityAnyRevisionHash" />
+          </Key>
+          <Property Name="SurrogateIdentityId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DefinitionIdentityHash" Type="Guid" Nullable="false" />
+          <Property Name="DefinitionIdentityAnyRevisionHash" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Package" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Build" Type="Int64" />
+          <Property Name="Major" Type="Int64" />
+          <Property Name="Minor" Type="Int64" />
+          <Property Name="Revision" Type="Int64" />
+        </EntityType>
+        <EntityType Name="IdentityOwnerTable">
+          <Key>
+            <PropertyRef Name="SurrogateIdentityId" />
+            <PropertyRef Name="SurrogateLockOwnerId" />
+          </Key>
+          <Property Name="SurrogateIdentityId" Type="Int64" Nullable="false" />
+          <Property Name="SurrogateLockOwnerId" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstanceMetadataChangesTable">
+          <Key>
+            <PropertyRef Name="SurrogateInstanceId" />
+            <PropertyRef Name="ChangeTime" />
+            <PropertyRef Name="EncodingOption" />
+            <PropertyRef Name="Change" />
+          </Key>
+          <Property Name="SurrogateInstanceId" Type="Int64" Nullable="false" />
+          <Property Name="ChangeTime" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EncodingOption" Type="Byte" Nullable="false" />
+          <Property Name="Change" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstancePromotedPropertiesTable">
+          <Key>
+            <PropertyRef Name="SurrogateInstanceId" />
+            <PropertyRef Name="PromotionName" />
+          </Key>
+          <Property Name="SurrogateInstanceId" Type="Int64" Nullable="false" />
+          <Property Name="PromotionName" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value33" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value34" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value35" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value36" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value37" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value38" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value39" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value40" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value41" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value42" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value43" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value44" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value45" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value46" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value47" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value48" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value49" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value50" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value51" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value52" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value53" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value54" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value55" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value56" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value57" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value58" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value59" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value60" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value61" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value62" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value63" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Value64" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="InstancesTable">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SurrogateInstanceId" />
+            <PropertyRef Name="Version" />
+            <PropertyRef Name="CreationTime" />
+            <PropertyRef Name="SurrogateIdentityId" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SurrogateInstanceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurrogateLockOwnerId" Type="Int64" />
+          <Property Name="PrimitiveDataProperties" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ComplexDataProperties" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WriteOnlyPrimitiveDataProperties" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WriteOnlyComplexDataProperties" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MetadataProperties" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DataEncodingOption" Type="Byte" />
+          <Property Name="MetadataEncodingOption" Type="Byte" />
+          <Property Name="Version" Type="Int64" Nullable="false" />
+          <Property Name="PendingTimer" Type="DateTime" Precision="3" />
+          <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="WorkflowHostType" Type="Guid" />
+          <Property Name="ServiceDeploymentId" Type="Int64" />
+          <Property Name="SuspensionExceptionName" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="SuspensionReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BlockingBookmarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastMachineRunOn" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ExecutionStatus" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IsInitialized" Type="Boolean" />
+          <Property Name="IsSuspended" Type="Boolean" />
+          <Property Name="IsReadyToRun" Type="Boolean" />
+          <Property Name="IsCompleted" Type="Boolean" />
+          <Property Name="SurrogateIdentityId" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KeysTable">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SurrogateKeyId" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SurrogateKeyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurrogateInstanceId" Type="Int64" />
+          <Property Name="EncodingOption" Type="Byte" />
+          <Property Name="Properties" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IsAssociated" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="LockOwnersTable">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="SurrogateLockOwnerId" />
+            <PropertyRef Name="LockExpiration" />
+            <PropertyRef Name="MachineName" />
+            <PropertyRef Name="EnqueueCommand" />
+            <PropertyRef Name="DeletesInstanceOnCompletion" />
+            <PropertyRef Name="WorkflowIdentityFilter" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SurrogateLockOwnerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LockExpiration" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WorkflowHostType" Type="Guid" />
+          <Property Name="MachineName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnqueueCommand" Type="Boolean" Nullable="false" />
+          <Property Name="DeletesInstanceOnCompletion" Type="Boolean" Nullable="false" />
+          <Property Name="PrimitiveLockOwnerData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ComplexLockOwnerData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WriteOnlyPrimitiveLockOwnerData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WriteOnlyComplexLockOwnerData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="EncodingOption" Type="Byte" />
+          <Property Name="WorkflowIdentityFilter" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RunnableInstancesTable">
+          <Key>
+            <PropertyRef Name="SurrogateInstanceId" />
+            <PropertyRef Name="RunnableTime" />
+            <PropertyRef Name="SurrogateIdentityId" />
+          </Key>
+          <Property Name="SurrogateInstanceId" Type="Int64" Nullable="false" />
+          <Property Name="WorkflowHostType" Type="Guid" />
+          <Property Name="ServiceDeploymentId" Type="Int64" />
+          <Property Name="RunnableTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SurrogateIdentityId" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceDeploymentsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="ServiceDeploymentHash" />
+            <PropertyRef Name="SiteName" />
+            <PropertyRef Name="RelativeServicePath" />
+            <PropertyRef Name="RelativeApplicationPath" />
+            <PropertyRef Name="ServiceName" />
+            <PropertyRef Name="ServiceNamespace" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceDeploymentHash" Type="Guid" Nullable="false" />
+          <Property Name="SiteName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RelativeServicePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RelativeApplicationPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ServiceName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ServiceNamespace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ActionInfoR_UserInfo_ActionInfo">
+          <End Role="ActionInfo" Type="Self.ActionInfo" Multiplicity="1" />
+          <End Role="R_UserInfo_ActionInfo" Type="Self.R_UserInfo_ActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_UserInfo_ActionInfo">
+              <PropertyRef Name="ActionInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfoOrderInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="UserInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfoR_UserInfo_ActionInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="R_UserInfo_ActionInfo" Type="Self.R_UserInfo_ActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_UserInfo_ActionInfo">
+              <PropertyRef Name="UserInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WF_InstanceWF_Step">
+          <End Role="WF_Instance" Type="Self.WF_Instance" Multiplicity="1" />
+          <End Role="WF_Step" Type="Self.WF_Step" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WF_Instance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WF_Step">
+              <PropertyRef Name="WF_InstanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WF_TempWF_Instance">
+          <End Role="WF_Temp" Type="Self.WF_Temp" Multiplicity="1" />
+          <End Role="WF_Instance" Type="Self.WF_Instance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WF_Temp">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WF_Instance">
+              <PropertyRef Name="WF_TempID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RoleInfoActionInfo">
+          <End Role="ActionInfo" Type="Self.ActionInfo" Multiplicity="*" />
+          <End Role="RoleInfo" Type="Self.RoleInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="UserInfoRoleInfo">
+          <End Role="RoleInfo" Type="Self.RoleInfo" Multiplicity="*" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="WF_InstanceFileInfo">
+          <End Role="FileInfo" Type="Self.FileInfo" Multiplicity="*" />
+          <End Role="WF_Instance" Type="Self.WF_Instance" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="OADBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActionInfo" EntityType="Self.ActionInfo" />
+          <EntitySet Name="FileInfo" EntityType="Self.FileInfo" />
+          <EntitySet Name="MenuInfo" EntityType="Self.MenuInfo" />
+          <EntitySet Name="OrderInfo" EntityType="Self.OrderInfo" />
+          <EntitySet Name="R_UserInfo_ActionInfo" EntityType="Self.R_UserInfo_ActionInfo" />
+          <EntitySet Name="RoleInfo" EntityType="Self.RoleInfo" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+          <EntitySet Name="UserInfoExt" EntityType="Self.UserInfoExt" />
+          <EntitySet Name="WF_Instance" EntityType="Self.WF_Instance" />
+          <EntitySet Name="WF_Step" EntityType="Self.WF_Step" />
+          <EntitySet Name="WF_Temp" EntityType="Self.WF_Temp" />
+          <EntitySet Name="DefinitionIdentityTable" EntityType="Self.DefinitionIdentityTable" />
+          <EntitySet Name="IdentityOwnerTable" EntityType="Self.IdentityOwnerTable" />
+          <EntitySet Name="InstanceMetadataChangesTable" EntityType="Self.InstanceMetadataChangesTable" />
+          <EntitySet Name="InstancePromotedPropertiesTable" EntityType="Self.InstancePromotedPropertiesTable" />
+          <EntitySet Name="InstancesTable" EntityType="Self.InstancesTable" />
+          <EntitySet Name="KeysTable" EntityType="Self.KeysTable" />
+          <EntitySet Name="LockOwnersTable" EntityType="Self.LockOwnersTable" />
+          <EntitySet Name="RunnableInstancesTable" EntityType="Self.RunnableInstancesTable" />
+          <EntitySet Name="ServiceDeploymentsTable" EntityType="Self.ServiceDeploymentsTable" />
+          <AssociationSet Name="FK_ActionInfoR_UserInfo_ActionInfo" Association="Self.FK_ActionInfoR_UserInfo_ActionInfo">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfoOrderInfo" Association="Self.FK_UserInfoOrderInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfoR_UserInfo_ActionInfo" Association="Self.FK_UserInfoR_UserInfo_ActionInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WF_InstanceWF_Step" Association="Self.FK_WF_InstanceWF_Step">
+            <End Role="WF_Instance" EntitySet="WF_Instance" />
+            <End Role="WF_Step" EntitySet="WF_Step" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WF_TempWF_Instance" Association="Self.FK_WF_TempWF_Instance">
+            <End Role="WF_Temp" EntitySet="WF_Temp" />
+            <End Role="WF_Instance" EntitySet="WF_Instance" />
+          </AssociationSet>
+          <AssociationSet Name="RoleInfoActionInfo" Association="Self.RoleInfoActionInfo">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="RoleInfo" EntitySet="RoleInfo" />
+          </AssociationSet>
+          <AssociationSet Name="UserInfoRoleInfo" Association="Self.UserInfoRoleInfo">
+            <End Role="RoleInfo" EntitySet="RoleInfo" />
+            <End Role="UserInfo" EntitySet="UserInfo" />
+          </AssociationSet>
+          <AssociationSet Name="WF_InstanceFileInfo" Association="Self.WF_InstanceFileInfo">
+            <End Role="FileInfo" EntitySet="FileInfo" />
+            <End Role="WF_Instance" EntitySet="WF_Instance" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OADBModelStoreContainer" CdmEntityContainer="OADBContext">
+          <EntitySetMapping Name="ActionInfo">
+            <EntityTypeMapping TypeName="OADBModel.ActionInfo">
+              <MappingFragment StoreEntitySet="ActionInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+                <ScalarProperty Name="ModfiedOn" ColumnName="ModfiedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="HttpMethd" ColumnName="HttpMethd" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+                <ScalarProperty Name="MenuIcon" ColumnName="MenuIcon" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileInfo">
+            <EntityTypeMapping TypeName="OADBModel.FileInfo">
+              <MappingFragment StoreEntitySet="FileInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuInfo">
+            <EntityTypeMapping TypeName="OADBModel.MenuInfo">
+              <MappingFragment StoreEntitySet="MenuInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderInfo">
+            <EntityTypeMapping TypeName="OADBModel.OrderInfo">
+              <MappingFragment StoreEntitySet="OrderInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R_UserInfo_ActionInfo">
+            <EntityTypeMapping TypeName="OADBModel.R_UserInfo_ActionInfo">
+              <MappingFragment StoreEntitySet="R_UserInfo_ActionInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HasPermission" ColumnName="HasPermission" />
+                <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+                <ScalarProperty Name="ActionInfoID" ColumnName="ActionInfoID" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleInfo">
+            <EntityTypeMapping TypeName="OADBModel.RoleInfo">
+              <MappingFragment StoreEntitySet="RoleInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+                <ScalarProperty Name="ModfiedOn" ColumnName="ModfiedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="OADBModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UName" ColumnName="UName" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ModfiedOn" ColumnName="ModfiedOn" />
+                <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoExt">
+            <EntityTypeMapping TypeName="OADBModel.UserInfoExt">
+              <MappingFragment StoreEntitySet="UserInfoExt">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WF_Instance">
+            <EntityTypeMapping TypeName="OADBModel.WF_Instance">
+              <MappingFragment StoreEntitySet="WF_Instance">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="InstanceName" ColumnName="InstanceName" />
+                <ScalarProperty Name="StartBy" ColumnName="StartBy" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="WFInstanceId" ColumnName="WFInstanceId" />
+                <ScalarProperty Name="WF_TempID" ColumnName="WF_TempID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WF_Step">
+            <EntityTypeMapping TypeName="OADBModel.WF_Step">
+              <MappingFragment StoreEntitySet="WF_Step">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StepName" ColumnName="StepName" />
+                <ScalarProperty Name="ProcessBy" ColumnName="ProcessBy" />
+                <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+                <ScalarProperty Name="ProcessTime" ColumnName="ProcessTime" />
+                <ScalarProperty Name="ProcessResult" ColumnName="ProcessResult" />
+                <ScalarProperty Name="PorcessComment" ColumnName="PorcessComment" />
+                <ScalarProperty Name="StepStatus" ColumnName="StepStatus" />
+                <ScalarProperty Name="IsStartStep" ColumnName="IsStartStep" />
+                <ScalarProperty Name="IsEndStep" ColumnName="IsEndStep" />
+                <ScalarProperty Name="ParentStepId" ColumnName="ParentStepId" />
+                <ScalarProperty Name="WF_InstanceID" ColumnName="WF_InstanceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WF_Temp">
+            <EntityTypeMapping TypeName="OADBModel.WF_Temp">
+              <MappingFragment StoreEntitySet="WF_Temp">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TepName" ColumnName="TepName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TempForm" ColumnName="TempForm" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+                <ScalarProperty Name="ActityType" ColumnName="ActityType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DefinitionIdentityTable">
+            <EntityTypeMapping TypeName="OADBModel.DefinitionIdentityTable">
+              <MappingFragment StoreEntitySet="DefinitionIdentityTable">
+                <ScalarProperty Name="SurrogateIdentityId" ColumnName="SurrogateIdentityId" />
+                <ScalarProperty Name="DefinitionIdentityHash" ColumnName="DefinitionIdentityHash" />
+                <ScalarProperty Name="DefinitionIdentityAnyRevisionHash" ColumnName="DefinitionIdentityAnyRevisionHash" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Build" ColumnName="Build" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Minor" ColumnName="Minor" />
+                <ScalarProperty Name="Revision" ColumnName="Revision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdentityOwnerTable">
+            <EntityTypeMapping TypeName="OADBModel.IdentityOwnerTable">
+              <MappingFragment StoreEntitySet="IdentityOwnerTable">
+                <ScalarProperty Name="SurrogateIdentityId" ColumnName="SurrogateIdentityId" />
+                <ScalarProperty Name="SurrogateLockOwnerId" ColumnName="SurrogateLockOwnerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstanceMetadataChangesTable">
+            <EntityTypeMapping TypeName="OADBModel.InstanceMetadataChangesTable">
+              <MappingFragment StoreEntitySet="InstanceMetadataChangesTable">
+                <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+                <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+                <ScalarProperty Name="EncodingOption" ColumnName="EncodingOption" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstancePromotedPropertiesTable">
+            <EntityTypeMapping TypeName="OADBModel.InstancePromotedPropertiesTable">
+              <MappingFragment StoreEntitySet="InstancePromotedPropertiesTable">
+                <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+                <ScalarProperty Name="PromotionName" ColumnName="PromotionName" />
+                <ScalarProperty Name="Value33" ColumnName="Value33" />
+                <ScalarProperty Name="Value34" ColumnName="Value34" />
+                <ScalarProperty Name="Value35" ColumnName="Value35" />
+                <ScalarProperty Name="Value36" ColumnName="Value36" />
+                <ScalarProperty Name="Value37" ColumnName="Value37" />
+                <ScalarProperty Name="Value38" ColumnName="Value38" />
+                <ScalarProperty Name="Value39" ColumnName="Value39" />
+                <ScalarProperty Name="Value40" ColumnName="Value40" />
+                <ScalarProperty Name="Value41" ColumnName="Value41" />
+                <ScalarProperty Name="Value42" ColumnName="Value42" />
+                <ScalarProperty Name="Value43" ColumnName="Value43" />
+                <ScalarProperty Name="Value44" ColumnName="Value44" />
+                <ScalarProperty Name="Value45" ColumnName="Value45" />
+                <ScalarProperty Name="Value46" ColumnName="Value46" />
+                <ScalarProperty Name="Value47" ColumnName="Value47" />
+                <ScalarProperty Name="Value48" ColumnName="Value48" />
+                <ScalarProperty Name="Value49" ColumnName="Value49" />
+                <ScalarProperty Name="Value50" ColumnName="Value50" />
+                <ScalarProperty Name="Value51" ColumnName="Value51" />
+                <ScalarProperty Name="Value52" ColumnName="Value52" />
+                <ScalarProperty Name="Value53" ColumnName="Value53" />
+                <ScalarProperty Name="Value54" ColumnName="Value54" />
+                <ScalarProperty Name="Value55" ColumnName="Value55" />
+                <ScalarProperty Name="Value56" ColumnName="Value56" />
+                <ScalarProperty Name="Value57" ColumnName="Value57" />
+                <ScalarProperty Name="Value58" ColumnName="Value58" />
+                <ScalarProperty Name="Value59" ColumnName="Value59" />
+                <ScalarProperty Name="Value60" ColumnName="Value60" />
+                <ScalarProperty Name="Value61" ColumnName="Value61" />
+                <ScalarProperty Name="Value62" ColumnName="Value62" />
+                <ScalarProperty Name="Value63" ColumnName="Value63" />
+                <ScalarProperty Name="Value64" ColumnName="Value64" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstancesTable">
+            <EntityTypeMapping TypeName="OADBModel.InstancesTable">
+              <MappingFragment StoreEntitySet="InstancesTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+                <ScalarProperty Name="SurrogateLockOwnerId" ColumnName="SurrogateLockOwnerId" />
+                <ScalarProperty Name="PrimitiveDataProperties" ColumnName="PrimitiveDataProperties" />
+                <ScalarProperty Name="ComplexDataProperties" ColumnName="ComplexDataProperties" />
+                <ScalarProperty Name="WriteOnlyPrimitiveDataProperties" ColumnName="WriteOnlyPrimitiveDataProperties" />
+                <ScalarProperty Name="WriteOnlyComplexDataProperties" ColumnName="WriteOnlyComplexDataProperties" />
+                <ScalarProperty Name="MetadataProperties" ColumnName="MetadataProperties" />
+                <ScalarProperty Name="DataEncodingOption" ColumnName="DataEncodingOption" />
+                <ScalarProperty Name="MetadataEncodingOption" ColumnName="MetadataEncodingOption" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PendingTimer" ColumnName="PendingTimer" />
+                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="WorkflowHostType" ColumnName="WorkflowHostType" />
+                <ScalarProperty Name="ServiceDeploymentId" ColumnName="ServiceDeploymentId" />
+                <ScalarProperty Name="SuspensionExceptionName" ColumnName="SuspensionExceptionName" />
+                <ScalarProperty Name="SuspensionReason" ColumnName="SuspensionReason" />
+                <ScalarProperty Name="BlockingBookmarks" ColumnName="BlockingBookmarks" />
+                <ScalarProperty Name="LastMachineRunOn" ColumnName="LastMachineRunOn" />
+                <ScalarProperty Name="ExecutionStatus" ColumnName="ExecutionStatus" />
+                <ScalarProperty Name="IsInitialized" ColumnName="IsInitialized" />
+                <ScalarProperty Name="IsSuspended" ColumnName="IsSuspended" />
+                <ScalarProperty Name="IsReadyToRun" ColumnName="IsReadyToRun" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="SurrogateIdentityId" ColumnName="SurrogateIdentityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeysTable">
+            <EntityTypeMapping TypeName="OADBModel.KeysTable">
+              <MappingFragment StoreEntitySet="KeysTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SurrogateKeyId" ColumnName="SurrogateKeyId" />
+                <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+                <ScalarProperty Name="EncodingOption" ColumnName="EncodingOption" />
+                <ScalarProperty Name="Properties" ColumnName="Properties" />
+                <ScalarProperty Name="IsAssociated" ColumnName="IsAssociated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LockOwnersTable">
+            <EntityTypeMapping TypeName="OADBModel.LockOwnersTable">
+              <MappingFragment StoreEntitySet="LockOwnersTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SurrogateLockOwnerId" ColumnName="SurrogateLockOwnerId" />
+                <ScalarProperty Name="LockExpiration" ColumnName="LockExpiration" />
+                <ScalarProperty Name="WorkflowHostType" ColumnName="WorkflowHostType" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="EnqueueCommand" ColumnName="EnqueueCommand" />
+                <ScalarProperty Name="DeletesInstanceOnCompletion" ColumnName="DeletesInstanceOnCompletion" />
+                <ScalarProperty Name="PrimitiveLockOwnerData" ColumnName="PrimitiveLockOwnerData" />
+                <ScalarProperty Name="ComplexLockOwnerData" ColumnName="ComplexLockOwnerData" />
+                <ScalarProperty Name="WriteOnlyPrimitiveLockOwnerData" ColumnName="WriteOnlyPrimitiveLockOwnerData" />
+                <ScalarProperty Name="WriteOnlyComplexLockOwnerData" ColumnName="WriteOnlyComplexLockOwnerData" />
+                <ScalarProperty Name="EncodingOption" ColumnName="EncodingOption" />
+                <ScalarProperty Name="WorkflowIdentityFilter" ColumnName="WorkflowIdentityFilter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RunnableInstancesTable">
+            <EntityTypeMapping TypeName="OADBModel.RunnableInstancesTable">
+              <MappingFragment StoreEntitySet="RunnableInstancesTable">
+                <ScalarProperty Name="SurrogateInstanceId" ColumnName="SurrogateInstanceId" />
+                <ScalarProperty Name="WorkflowHostType" ColumnName="WorkflowHostType" />
+                <ScalarProperty Name="ServiceDeploymentId" ColumnName="ServiceDeploymentId" />
+                <ScalarProperty Name="RunnableTime" ColumnName="RunnableTime" />
+                <ScalarProperty Name="SurrogateIdentityId" ColumnName="SurrogateIdentityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceDeploymentsTable">
+            <EntityTypeMapping TypeName="OADBModel.ServiceDeploymentsTable">
+              <MappingFragment StoreEntitySet="ServiceDeploymentsTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ServiceDeploymentHash" ColumnName="ServiceDeploymentHash" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="RelativeServicePath" ColumnName="RelativeServicePath" />
+                <ScalarProperty Name="RelativeApplicationPath" ColumnName="RelativeApplicationPath" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="ServiceNamespace" ColumnName="ServiceNamespace" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RoleInfoActionInfo" TypeName="OADBModel.RoleInfoActionInfo" StoreEntitySet="RoleInfoActionInfo">
+            <EndProperty Name="ActionInfo">
+              <ScalarProperty Name="ID" ColumnName="ActionInfo_ID" />
+            </EndProperty>
+            <EndProperty Name="RoleInfo">
+              <ScalarProperty Name="ID" ColumnName="RoleInfo_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="UserInfoRoleInfo" TypeName="OADBModel.UserInfoRoleInfo" StoreEntitySet="UserInfoRoleInfo">
+            <EndProperty Name="RoleInfo">
+              <ScalarProperty Name="ID" ColumnName="RoleInfo_ID" />
+            </EndProperty>
+            <EndProperty Name="UserInfo">
+              <ScalarProperty Name="ID" ColumnName="UserInfo_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="WF_InstanceFileInfo" TypeName="OADBModel.WF_InstanceFileInfo" StoreEntitySet="WF_InstanceFileInfo">
+            <EndProperty Name="FileInfo">
+              <ScalarProperty Name="ID" ColumnName="FileInfo_ID" />
+            </EndProperty>
+            <EndProperty Name="WF_Instance">
+              <ScalarProperty Name="ID" ColumnName="WF_Instance_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

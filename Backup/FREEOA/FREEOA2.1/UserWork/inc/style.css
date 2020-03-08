@@ -1,0 +1,69 @@
+BODY
+{
+	margin:0px 0px 0px 0px;
+	font-size:9pt;
+    background-position:center bottom;
+    background-repeat:no-repeat;
+}
+
+TD
+{
+	font-size:9pt;
+}
+
+th
+{
+	font-size:9pt;
+}
+
+INPUT
+{
+    BORDER-BOTTOM: #808080 1px solid;
+    BORDER-LEFT: #808080 1px solid;
+    BORDER-RIGHT: #808080 1px solid;
+    BORDER-TOP: #808080 1px solid;
+}
+
+TEXTAREA
+{
+	BORDER-BOTTOM: #808080 1px solid;
+    BORDER-LEFT: #808080 1px solid;
+    BORDER-RIGHT: #808080 1px solid;
+    BORDER-TOP: #808080 1px solid;
+}
+
+.sysBtn
+{
+    FONT-SIZE: 9pt;
+    BACKGROUND-COLOR: #e7e7e7;
+    cursor:hand;    
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-BOTTOM: #000000 1px solid;
+}
+
+a:link
+{
+	COLOR: #000000;
+	FONT-SIZE: 9pt;
+	TEXT-DECORATION: none
+}
+a:visited
+{
+   COLOR: #000000;
+	FONT-SIZE: 9pt;
+	TEXT-DECORATION: none
+}
+a:active
+{
+	COLOR: #CC3300;
+	FONT-SIZE: 9pt;
+	TEXT-DECORATION: none
+}
+a:hover
+{
+    COLOR: #CC3300;
+	FONT-SIZE: 9pt;
+	TEXT-DECORATION: none
+}

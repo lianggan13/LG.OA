@@ -1,0 +1,339 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>角色数据中心-首页</title>
+    <link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+
+    @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@   @*不能用*@
+    @*<script src="~/Scripts/jquery-1.8.0.min.js"></script>*@   @*不能用*@
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/datapattern.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+        $(function () {
+            $("#addDiv").css("display", "none");
+            $("#updateDiv").css("display", "none");
+            $("#distributeActionDiv").css("display", "none");
+            $('#tt').datagrid({
+                title: '角色数据列表',
+                iconCls: 'icon-blank',
+                width: 700,
+                height: 350,
+                fitColumns: true, // 列自适应
+                nowrap: false,
+                // rownumbers: true, // 行号列
+                idField: 'ID',//主键列的列明
+                loadMsg: '正在加载角色的信息...',
+                singleSelect: false,//是否单行选择
+                pagination: true,//是否有分页
+                pageSize: 1,//页大小，一页多少条数据
+                pageNumber: 1,//当前页，默认的
+                pageList: [5, 10, 15],
+                //queryParams: pars,//往后台传递参数
+                autoRowHeight: false,
+                striped: true,
+                collapsible: true,
+                url: '/RoleInfo/GetRoleInfos',
+                columns: [[
+                    { title: '选择', colspan: 1, width: 50 },
+                    { title: '角色数据', colspan: 5 },
+                ], [
+                    { field: 'ck', checkbox: true, align: 'left', width: 50, colspan: 1 },
+                    { field: 'ID', title: '编号', width: 50 },
+                    { field: 'RoleName', title: '名称', width: 80 },
+                    { field: 'Remark', title: '备注', width: 150 },
+                    {
+                        field: 'ModfiedOn', title: '修改日期', width: 200, align: 'right',
+                        formatter: function (value, row, index) {
+                            return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-M-d");
+                        }
+                    },
+
+                    {
+                        field: 'SubTime', title: '创建日期', width: 200, align: 'right',
+                        formatter: function (value, row, index) {
+                            return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-M-d");
+                        }
+                    },
+
+
+                ]],
+
+                toolbar: [{
+                    id: 'btnadd',
+                    text: '新增',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        AddRoleInfo();
+                    }
+                }, {
+                    id: 'btnedit',
+                    text: '编辑',
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        EditRoleInfo();
+                    }
+                }, {
+                    id: 'btnremove',
+                    text: '删除',
+                    disabled: false,
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        DeleteRoleInfo();
+                    },
+                },'-', {
+                    id: 'btneditrole',
+                    text: '分配权限',
+                    disabled: false,
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        DistributeAction();
+                    },
+                }
+
+
+                ]
+            });
+        });
+         
+        //新增角色信息
+        function AddRoleInfo() {
+            $("#addDiv").css("display", "block");
+            $('#addDiv').dialog({
+                title: "表单",
+                    width: 300,
+                    height: 200,
+                    collapsible: true,  // 折叠
+                    minimizable:true,   
+                    maximizable: true, 
+                    resizable: true,    // 改变对话框窗口大小
+                    modal: true,
+                buttons: [{
+                    text: '提交',
+                    iconCls: 'icon-ok', 
+                    handler: function () {
+                        // 表单校验
+                        ValidateInfo($("#addForm"));
+                        // 表单提交
+                        $("#addForm").submit();
+                    }
+                }, {
+                    text: '取消',
+                    handler: function () {
+                        $('#addDiv').dialog('close');
+                    }
+                }]
+            });
+
+        }
+        //编辑角色信息
+        function EditRoleInfo() {
+            var selections = $("#tt").datagrid("getSelections");
+            if (selections.length != 1) {
+                $.messager.alert("警告", "请选择一个要修改的角色信息", "warning");
+                return;
+            }
+            var rid = selections[0].ID;
+            $.post("/RoleInfo/ShowEditRoleInfo", { "rid": rid }, function (data) {
+                alert(data.RoleName);
+                $("#txtID").val(data.ID);
+                $("#txtRoleName").val(data.RoleName);
+                $("#txtRemark").val(data.Remark);
+
+            });
+            $("#updateDiv").css("display", "block");
+            $('#updateDiv').dialog({
+                  title: "表单",
+                    width: 300,
+                    height: 200,
+                    collapsible: true,  // 折叠
+                    minimizable:true,   
+                    maximizable: true, 
+                    resizable: true,    // 改变对话框窗口大小
+                    modal: true,
+                buttons: [{
+                    text: '提交',
+                    iconCls: 'icon-ok', 
+                    handler: function () {
+                        // 表单校验
+                        ValidateInfo($("#updateForm"));
+                        // 表单提交
+                        $("#updateForm").submit();
+                    }
+                }, {
+                    text: '取消',
+                    handler: function () {
+                        $('#updateDiv').dialog('close');
+                    }
+                }]
+            });
+        }
+        //删除角色信息
+        function DeleteRoleInfo() {
+            var selections = $("#tt").datagrid("getSelections");
+            if (selections.length < 0) {
+                $.messager.alert("警告", "请选择需要修改的角色信息", "warning");
+                return;
+            }
+            var idList = "";
+            for (var i = 0; i < selections.length; i++) {
+                idList = idList + selections[i].ID + ',';
+            }
+            idList = idList.substr(0, idList.length - 1);
+            $.post("/RoleInfo/DeleteRoleInfo", { "idString": idList }, function (data) {
+                if (data == "ok") {
+                    $("tt").datagrid('reload');;
+                    $.messager.alert("提示", "删除成功", "info");
+                } else {
+                    $.messager.alert("提示", "删除失败", "error");
+                }
+            });
+        }
+        //为角色分配权限
+        function DistributeAction() {
+           var selections = $("#tt").datagrid("getSelections");
+            if (selections.length != 1) {
+                $.messager.alert("警告", "请选择一个要修改的角色信息", "warning");
+                return;
+            }
+            var rid = selections[0].ID;
+            $("#distributeActionFrame").attr("src", "/RoleInfo/ShowRoleActions?rid=" + rid);
+            $("#distributeActionDiv").css("display", "block");
+            $('#distributeActionDiv').dialog({
+                    title: "表单",
+                    width: 600,
+                    height: 450,
+                    collapsible: true,  // 折叠
+                    minimizable:true,   
+                    maximizable: true, 
+                    resizable: true,    // 改变对话框窗口大小
+                    modal: true,
+                buttons: [{
+                    text: '提交',
+                    iconCls: 'icon-ok',
+                    handler: function () {
+                         var distributeActionFrame = $("#distributeActionFrame")[0].contentWindow;
+                        distributeActionFrame.SubForm(); // 调用子窗体中的方法，完成表单的提交。
+                    }
+                }, {
+                    text: '取消',
+                    handler: function () {
+                        $('#distributeActionDiv').dialog('close');
+                    }
+                }]
+            });
+        }
+
+        //表单校验
+        function ValidateInfo(control) {
+            control.validate({  //表示对哪个form表单进行校验，获取form标签的id属性的值
+                rules: {        //表示验证规则
+                    RoleName: "required",//表示对哪个表单元素进行校验，要写具体的表单元素的name属性的值
+                    Remark: {
+                        required: true
+                    },
+                },
+                messages: {
+                    RoleName: "请输入角色名",
+                    Remark: {
+                        required: "请输入备注"
+                    }
+                }
+            });
+        }
+        function AddRoleOnSuccess(data) {
+            if (data == "ok") {
+                $('#addDiv').dialog('close');
+                $("tt").datagrid('reload');
+                $("#addDiv input").val("");
+                $.messager.alert("提示", "添加成功", "info");
+            } else {
+                $.messager.alert("提示", "添加失败", "error");
+            }
+        }
+
+        function DeleteUserOnSuccess(data) {
+            alert("Success:" + data);
+        }
+        
+        function UpdateRoleOnSuccess(data) {
+            if (data == "ok") {
+                $('#updateDiv').dialog('close');
+                $("tt").datagrid('reload');
+                $("#updateDiv input").val("");
+                $.messager.alert("提示", "修改成功", "info");
+            } else {
+                $.messager.alert("提示", "修改失败", "error");
+            } 
+        }
+         function DistributeRoleActionOnSuccess(data) {
+            if (data == "ok") {
+                $('#distributeActionDiv').dialog('close');
+                $("tt").datagrid('reload');
+                $("#distributeActionDiv input").val("");
+                $.messager.alert("提示", "分配成功", "info");
+            } else {
+                $.messager.alert("提示", "分配失败", "error");
+            } 
+        }
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <table id="tt" style="width: 700px;" title="标题，可以使用代码进行初始化，也可以使用这种属性的方式" iconcls="icon-edit">
+        </table>
+    </div>
+
+
+    @*------------------ Add 角色------------------*@
+    <div id="addDiv" style="width:450px ;height:200px;">
+        @using (Ajax.BeginForm("AddRoleInfo", "RoleInfo", new { }, new AjaxOptions
+        {
+            HttpMethod = "Post",
+            OnSuccess = "AddRoleOnSuccess",
+        }, new { id = "addForm" }))
+        {
+            <table cellspacing="10" align="left">
+                <tr><td>角色名</td><td><input type="text" name="RoleName" /></td></tr>
+                <tr><td>备注</td><td><input type="text" name="Remark" /></td></tr>
+            </table>
+        }
+    </div>
+
+    @*------------------ Update 角色------------------*@
+    <div id="updateDiv" style="width:450px ;height:200px;">
+        @using (Ajax.BeginForm("UpdateRoleInfo", "RoleInfo", new { }, new AjaxOptions
+        {
+            HttpMethod = "Post",
+            OnSuccess = "UpdateRoleOnSuccess",
+        }, new { id = "updateForm" }))
+        {
+            <input type="hidden" name="ID" value="" id="txtID" />
+            <table cellspacing="10" align="left">
+                <tr><td>角色名</td><td><input type="text" name="RoleName" id="txtRoleName" /></td></tr>
+                <tr><td>备注</td><td><input type="text" name="Remark" id="txtRemark" /></td></tr>
+            </table>
+        }
+    </div>
+
+    @*------------------ Distribute 角色 ------------------*@
+    <div id="distributeActionDiv" @*style="width:630px ;height:360px;"*@>
+        <iframe id="distributeActionFrame" frameborder="0" style="width:100%;height:100%">
+        </iframe>
+    </div>
+
+</body>
+</html>

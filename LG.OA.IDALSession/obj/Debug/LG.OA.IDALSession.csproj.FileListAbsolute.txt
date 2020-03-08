@@ -1,0 +1,16 @@
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\LG.OA.IDALSession.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\LG.OA.IDALSession.pdb
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\LG.OA.IDAL.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\LG.OA.Model.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\EntityFramework.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\LG.OA.IDAL.pdb
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\LG.OA.Model.pdb
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\LG.OA.Model.dll.config
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\EntityFramework.xml
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\obj\Debug\LG.OA.IDALSession.csprojAssemblyReference.cache
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\obj\Debug\LG.OA.IDALSession.csproj.CopyComplete
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\obj\Debug\LG.OA.IDALSession.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.IDALSession\obj\Debug\LG.OA.IDALSession.pdb

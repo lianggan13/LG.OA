@@ -1,0 +1,12 @@
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\bin\Debug\LG.OA.Model.dll.config
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\bin\Debug\LG.OA.Model.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\bin\Debug\LG.OA.Model.pdb
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\bin\Debug\EntityFramework.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\bin\Debug\EntityFramework.xml
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\obj\Debug\LG.OA.Model.csproj.CopyComplete
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\obj\Debug\LG.OA.Model.dll
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\obj\Debug\LG.OA.Model.pdb
+C:\Users\mac\Desktop\LG.OA\LG.OA.Model\obj\Debug\LG.OA.Model.csprojAssemblyReference.cache

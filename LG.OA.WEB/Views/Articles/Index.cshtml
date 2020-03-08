@@ -1,0 +1,177 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using LG.OA.WEB.Models.SearchModels;
+@model IEnumerable<LG.OA.WEB.Models.SearchModels.Article>
+@*@model PagedList<LG.OA.WEB.Models.SearchModels.SearchResult>*@
+
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>文章</title>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <style type="text/css">
+        .search-text2 {
+            display: block;
+            width: 528px;
+            height: 26px;
+            line-height: 26px;
+            float: left;
+            margin: 3px 5px;
+            border: 1px solid gray;
+            outline: none;
+            font-family: 'Microsoft Yahei';
+            font-size: 14px;
+        }
+
+        .search-btn2 {
+            width: 102px;
+            height: 32px;
+            line-height: 32px;
+            cursor: pointer;
+            border: 0px;
+            background-color: #d6000f;
+            font-family: 'Microsoft Yahei';
+            font-size: 16px;
+            color: #f3f3f3;
+        }
+
+        .search-list-con {
+            width: 640px;
+            background-color: #fff;
+            overflow: hidden;
+            margin-top: 0px;
+            padding-bottom: 15px;
+            padding-top: 5px;
+        }
+
+        .search-list {
+            width: 600px;
+            overflow: hidden;
+            margin: 15px 20px 0px 20px;
+        }
+
+            .search-list dt {
+                font-family: 'Microsoft Yahei';
+                font-size: 16px;
+                line-height: 20px;
+                margin-bottom: 7px;
+                font-weight: normal;
+            }
+
+                .search-list dt a {
+                    color: #2981a9;
+                }
+
+                    .search-list dt a em {
+                        font-style: normal;
+                        color: #cc0000;
+                    }
+
+        #divKeyWords {
+            text-align: left;
+            width: 520px;
+            padding-left: 4px;
+        }
+
+            #divKeyWords a {
+                text-decoration: none;
+            }
+
+                #divKeyWords a:hover {
+                    color: red;
+                }
+    </style>
+    <script>
+        $(function () {
+
+        });
+        function CreateIndexOnSuccess(data) {
+            alert(data);
+        }
+    </script>
+</head>
+
+
+<body>
+    <h2>文章列表</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateTime)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateTime)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @if (ViewBag.ArticleFiles != null)
+    {
+        <h2>文件列表</h2>
+        <table cellspacing="10" align="left">
+            @foreach (var item in (ViewBag.ArticleFiles as List<Article>))
+            {
+                using (Ajax.BeginForm("Create", "Articles", new { }, new AjaxOptions
+                {
+                    HttpMethod = "Post",
+                    OnSuccess = "CreateIndexOnSuccess",
+                }     ))  // , new { id = "indexForm" }
+                {
+
+                    <tr>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Title)*@
+                            <input type="text" maxlength="30" value="@item.Title" style="outline:none" name="Title" />
+                            <input type="hidden" value="@item.Content"  name="Content"/>
+                        </td>
+                        <td>
+                            @*<button value="将入到索引库"></button>*@
+                            <input type="submit" value="添加至索引库" />
+                        </td>
+                    </tr>
+
+
+                }
+            }
+        </table>
+    }
+
+</body>
+</html>

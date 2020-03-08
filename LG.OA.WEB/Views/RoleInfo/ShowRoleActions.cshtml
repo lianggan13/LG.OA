@@ -1,0 +1,122 @@
+﻿@model IEnumerable<LG.OA.Model.ActionInfo>
+@using LG.OA.Model;
+@{
+    Layout = null;
+}
+@{
+    RoleInfo Role = ViewBag.Role;
+    List<ActionInfo> RoleActions = ViewBag.RoleActions as List<ActionInfo>;
+    // 实际上 AllActions 就是 Model
+    // List<ActionInfo> AllActions = ViewBag.AllActions as List<ActionInfo>;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowRoleActions</title>
+    <link href="~/Content/tableStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/datapattern.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+        function SubForm() {
+            $("#distributeRoleActionForm").submit();
+        }
+        function DistributeRoleActionOnSuccess(data) {
+            window.parent.DistributeRoleActionOnSuccess(data);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        为
+        <span style="font-size:20px;font-weight:bold;color:red">@Role.RoleName</span>
+        分配权限
+        <br />
+        @using (Ajax.BeginForm("DistributeRoleAction", "ActionInfo", new { },
+            new AjaxOptions { HttpMethod = "post", OnSuccess = "DistributeRoleActionOnSuccess" }, new { id = "distributeRoleActionForm" }))
+        {
+    <input type="hidden" name="rid" value="@Role.ID" />
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ActionName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Remark)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Url)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HttpMethd)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsMenu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MenuIcon)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sort)
+                    </th>
+                    <th>
+                        选择       
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActionName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Remark)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Url)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HttpMethd)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsMenu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MenuIcon)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sort)
+                        </td>
+                        <td>
+                            @{
+                                var roleAction = RoleActions.Where(o => o.ID == item.ID).FirstOrDefault();
+                                if (roleAction != null)
+                                {
+
+                                    <input type="checkbox" name="chk_@item.ID" value="" checked="checked" />
+                                }
+                                else
+                                {
+                                    <input type="checkbox" name="chk_@item.ID" value=""  />
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+
+    </div>
+
+</body>
+</html>
