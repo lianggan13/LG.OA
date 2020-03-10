@@ -1,5 +1,0 @@
-obj\Debug\ResolveAssemblyReference.cache
-bin\Debug\ptw.FileManager.Web.dll
-bin\Debug\ptw.FileManager.Web.pdb
-obj\Debug\ptw.FileManager.Web.dll
-obj\Debug\ptw.FileManager.Web.pdb
