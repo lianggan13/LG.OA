@@ -1,0 +1,4 @@
+obj\Debug\_Heima8.OA.Workflow.g.cs
+obj\Debug\FincalActivity.g.cs
+obj\Debug\Heima8.OA.Workflow_FincalActivity_BeforeInitializeComponentHelper.cs
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow_FincalActivity_CompiledExpressionRoot.cs

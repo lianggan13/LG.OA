@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4a0a996882a040e590a5e44c711729c2" Name="Diagram1">
+        <EntityTypeShape EntityType="OADbModel.ActionInfo" Width="1.5" PointX="2.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.FileInfo" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.MenuInfo" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.OrderInfo" Width="1.5" PointX="9.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.R_UserInfo_ActionInfo" Width="1.5" PointX="9.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.RoleInfo" Width="1.5" PointX="5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.UserInfo" Width="1.5" PointX="7.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.UserInfoExt" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.WF_Instance" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.WF_Step" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.WF_Temp" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.DefinitionIdentityTable" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.IdentityOwnerTable" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.InstanceMetadataChangesTable" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.InstancePromotedPropertiesTable" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.InstancesTable" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.KeysTable" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.LockOwnersTable" Width="1.5" PointX="11.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.RunnableInstancesTable" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OADbModel.ServiceDeploymentsTable" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="OADbModel.FK_ActionInfoR_UserInfo_ActionInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="OADbModel.FK_UserInfoOrderInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="OADbModel.FK_UserInfoR_UserInfo_ActionInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="OADbModel.FK_WF_InstanceWF_Step" ManuallyRouted="false" />
+        <AssociationConnector Association="OADbModel.FK_WF_TempWF_Instance" ManuallyRouted="false" />
+        <AssociationConnector Association="OADbModel.RoleInfoActionInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="OADbModel.UserInfoRoleInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="OADbModel.WF_InstanceFileInfo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

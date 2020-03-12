@@ -1,0 +1,29 @@
+﻿@model IEnumerable<LG.OA.Model.OAModels.WF_Temp>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>发起流程</title>
+    <link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/datapattern.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</head>
+<body>
+    @foreach (var item in Model)
+    {
+        <a href="/WFInstance/Add/@item.ID"  class="easyui-linkbutton" data-options="iconCls:'icon-redo'">@item.TepName</a>
+    }
+
+</body>
+</html>

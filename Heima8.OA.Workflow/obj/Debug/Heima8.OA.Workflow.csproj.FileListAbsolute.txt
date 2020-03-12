@@ -1,0 +1,88 @@
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Workflow.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Workflow.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csprojResolveAssemblyReference.cache
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\FincalActivity.g.xaml
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow_FincalActivity_BeforeInitializeComponentHelper.txt
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\_Heima8.OA.Workflow.g.cs
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\FincalActivity.g.cs
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow_FincalActivity_BeforeInitializeComponentHelper.cs
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csproj.XamlGeneratedCodeFileListAbsolute.txt
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csproj.XamlGeneratedXamlFileListAbsolute.txt
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\AC2C1ABA-CCF6-44D4-8127-588FD4D0A860-DeferredValidationErrors.xml
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow_FincalActivity_CompiledExpressionRoot.cs
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Common.Logging.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.BLL.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Common.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.IBLL.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Model.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Spring.Core.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.IDAL.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.DALFactory.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Memcached.ClientLibrary.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\log4net.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\EntityFramework.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.EFDAL.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.BLL.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Common.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.IBLL.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Model.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Spring.Core.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Spring.Core.xml
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.IDAL.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.DALFactory.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Memcached.ClientLibrary.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\log4net.xml
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\EntityFramework.xml
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.EFDAL.pdb
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\InProcessTempFiles\FincalActivity.g.cs
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\InProcessTempFiles\FincalActivity.g.xaml
+F:\NetClass\黑马8期\2013年10月16日 T4模板 源代码管理 日志处理\代码\Heima8.OA\Heima8.OA.Workflow\obj\Debug\InProcessTempFiles\_Heima8.OA.Workflow.g.cs
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Workflow.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Workflow.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Common.Logging.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.BLL.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Common.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.IBLL.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Model.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Spring.Core.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.IDAL.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.DALFactory.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\log4net.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Memcached.ClientLibrary.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\EntityFramework.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.EFDAL.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.BLL.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Common.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.IBLL.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Model.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.Model.dll.config
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Spring.Core.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Spring.Core.xml
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.IDAL.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.DALFactory.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\log4net.xml
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Memcached.ClientLibrary.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\EntityFramework.xml
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\Heima8.OA.EFDAL.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csprojAssemblyReference.cache
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\FincalActivity.g.xaml
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow_FincalActivity_BeforeInitializeComponentHelper.txt
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\_Heima8.OA.Workflow.g.cs
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\FincalActivity.g.cs
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow_FincalActivity_BeforeInitializeComponentHelper.cs
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csproj.XamlGeneratedCodeFileListAbsolute.txt
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csproj.XamlGeneratedXamlFileListAbsolute.txt
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csproj.FileListAbsolute.txt
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csproj.XamlPass2Flag.txt
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csprojResolveAssemblyReference.cache
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.dll
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.pdb
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow_FincalActivity_CompiledExpressionRoot.cs
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\AC2C1ABA-CCF6-44D4-8127-588FD4D0A860-DeferredValidationErrors.xml
+D:\Learn\C# Net\ASP.NET\MVC\资料\CODE\Heima8.OA\Heima8.OA.Workflow\obj\Debug\Heima8.OA.Workflow.csproj.CopyComplete

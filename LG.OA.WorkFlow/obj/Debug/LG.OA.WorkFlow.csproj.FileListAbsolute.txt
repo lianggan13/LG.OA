@@ -1,0 +1,13 @@
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\LG.OA.WorkFlow.csprojAssemblyReference.cache
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\FincalActivity.g.xaml
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\LG.OA.WorkFlow_FincalActivity_BeforeInitializeComponentHelper.txt
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\_LG.OA.WorkFlow.g.cs
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\FincalActivity.g.cs
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\LG.OA.WorkFlow_FincalActivity_BeforeInitializeComponentHelper.cs
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\LG.OA.WorkFlow.csproj.XamlGeneratedCodeFileListAbsolute.txt
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\LG.OA.WorkFlow.csproj.XamlGeneratedXamlFileListAbsolute.txt
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\LG.OA.WorkFlow.csproj.FileListAbsolute.txt
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\LG.OA.WorkFlow.csproj.XamlPass2Flag.txt
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\LG.OA.WorkFlow.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\LG.OA.WorkFlow.pdb
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.WorkFlow\obj\Debug\AC2C1ABA-CCF6-44D4-8127-588FD4D0A860-DeferredValidationErrors.xml

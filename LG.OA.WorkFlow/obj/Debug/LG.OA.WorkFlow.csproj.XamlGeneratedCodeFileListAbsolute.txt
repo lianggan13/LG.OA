@@ -1,0 +1,3 @@
+obj\Debug\_LG.OA.WorkFlow.g.cs
+obj\Debug\FincalActivity.g.cs
+obj\Debug\LG.OA.WorkFlow_FincalActivity_BeforeInitializeComponentHelper.cs
