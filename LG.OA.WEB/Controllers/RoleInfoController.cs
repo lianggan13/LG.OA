@@ -1,5 +1,5 @@
 ﻿using LG.OA.DLL;
-using LG.OA.Model;
+using LG.OA.Model.OAModels;
 using LG.OA.Model.Enums;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace LG.OA.WEB.Controllers
             int pageSize = (Request["rows"] != null) ? int.Parse(Request["rows"]) : 5;
             int totalCount = 0;
             var roleInfos =  RoleInfoService.LoadEntites(pageIndex, pageSize, out totalCount,
-                o => o.DelFlag == (short)DeleteEnumType.Normal,
+                o => o.DelFlag == (short)DeleteEnum.Normal,
                 o => o.ID);
             var rowsData = from r in roleInfos
                            select new
@@ -39,7 +39,7 @@ namespace LG.OA.WEB.Controllers
 
         public ActionResult AddRoleInfo(RoleInfo newRole)
         {
-            newRole.DelFlag = (short)DeleteEnumType.Normal;
+            newRole.DelFlag = (short)DeleteEnum.Normal;
             newRole.SubTime = newRole.ModfiedOn = DateTime.Now;//.ToString("yyyy-MM-dd hh:mm:ss");
             RoleInfoService.AddEntity(newRole);
             return Content("ok");
@@ -58,7 +58,7 @@ namespace LG.OA.WEB.Controllers
             RoleInfo roleInfo = RoleInfoService.LoadEntites(o => o.ID == updateRole.ID).FirstOrDefault();
             roleInfo.RoleName = Request["RoleName"];
             roleInfo.Remark = Request["Remark"];
-            roleInfo.DelFlag = (short)DeleteEnumType.Normal;
+            roleInfo.DelFlag = (short)DeleteEnum.Normal;
             roleInfo.ModfiedOn = DateTime.Now;//.ToString("yyyy-MM-dd hh:mm:ss");                     
             RoleInfoService.UpdateEntity(roleInfo);
             return Content("ok");
@@ -72,7 +72,7 @@ namespace LG.OA.WEB.Controllers
 
         public ActionResult ShowRoleActions(int rid)
         {
-            short delFlag = (short)(DeleteEnumType.Normal);
+            short delFlag = (short)(DeleteEnum.Normal);
             RoleInfo   roleInfo = RoleInfoService.LoadEntites(o => o.ID == rid).FirstOrDefault();
             var roleActions = roleInfo.ActionInfo.Where(o => o.DelFlag == delFlag).ToList();
             var allActions = ActionInfoService.LoadEntites(o => o.DelFlag == delFlag).ToList();

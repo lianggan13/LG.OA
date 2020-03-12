@@ -1,7 +1,7 @@
 ﻿using LG.OA.Common;
 using LG.OA.DLL;
 using LG.OA.IDLL;
-using LG.OA.Model;
+using LG.OA.Model.OAModels;
 using LG.OA.WEB.Controllers;
 using Spring.Context;
 using Spring.Context.Support;
@@ -15,7 +15,7 @@ namespace LG.OA.WEB.Filter
 {
     public class ValidateUserAttribute: ActionFilterAttribute      
     {
-        IAuthorizationFilter
+        
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);

@@ -1,4 +1,4 @@
-﻿using LG.OA.Model;
+﻿using LG.OA.Model.OAModels;
 using LG.OA.Model.Enums;
 using System;
 using System.Collections.Generic;

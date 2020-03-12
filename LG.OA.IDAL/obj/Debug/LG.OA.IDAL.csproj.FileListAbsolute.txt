@@ -12,3 +12,17 @@ C:\Users\mac\Desktop\LG.OA\LG.OA.IDAL\obj\Debug\LG.OA.IDAL.csprojAssemblyReferen
 C:\Users\mac\Desktop\LG.OA\LG.OA.IDAL\obj\Debug\LG.OA.IDAL.csproj.CopyComplete
 C:\Users\mac\Desktop\LG.OA\LG.OA.IDAL\obj\Debug\LG.OA.IDAL.dll
 C:\Users\mac\Desktop\LG.OA\LG.OA.IDAL\obj\Debug\LG.OA.IDAL.pdb
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\LG.OA.IDAL.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\LG.OA.IDAL.pdb
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\LG.OA.Model.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\EntityFramework.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\LG.OA.Model.pdb
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\LG.OA.Model.dll.config
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\EntityFramework.xml
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\obj\Debug\LG.OA.IDAL.csprojAssemblyReference.cache
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\obj\Debug\LG.OA.IDAL.csproj.CopyComplete
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\obj\Debug\LG.OA.IDAL.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\obj\Debug\LG.OA.IDAL.pdb
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\Newtonsoft.Json.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\LG.OA.IDAL\bin\Debug\Newtonsoft.Json.xml

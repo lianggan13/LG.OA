@@ -3,7 +3,9 @@
   <!--<object name="UserInfoController" type="LG.OA.WEB.Controllers.UserInfoController, LG.OA.WEB" singleton="false">-->
   <object name="BaseController" type="LG.OA.WEB.Controllers.BaseController, LG.OA.WEB" singleton="false">
     <property name="UserInfoService" ref="UserInfoService" />
+    <property name="ActionInfoService" ref="ActionInfoService" />
     <property name="RoleInfoService" ref="RoleInfoService" />
+    <property name="WF_TempService" ref="WF_TempService" />
   </object>
   <object name="UserInfoController" type="LG.OA.WEB.Controllers.UserInfoController, LG.OA.WEB" singleton="false">
     <property name="UserInfoService" ref="UserInfoService" />
@@ -13,8 +15,8 @@
 
   <object name="HomeController" type="LG.OA.WEB.Controllers.HomeController, LG.OA.WEB" singleton="false">
     <property name="UserInfoService" ref="UserInfoService" />
-    <!--<property name="ActionInfoService" ref="ActionInfoService" />
-    <property name="RoleInfoService" ref="RoleInfoService" />-->
+    <property name="ActionInfoService" ref="ActionInfoService" />
+    <property name="RoleInfoService" ref="RoleInfoService" />
   </object>
   
   <object name="RoleInfoController" type="LG.OA.WEB.Controllers.RoleInfoController, LG.OA.WEB" singleton="false">
@@ -30,4 +32,12 @@
   <object name="LoginController" type="LG.OA.WEB.Controllers.LoginController, LG.OA.WEB" singleton="false">
     <property name="UserInfoService" ref="UserInfoService" />
   </object>
+
+  <object name="WFTempController" type="LG.OA.WEB.Controllers.WFTempController, LG.OA.WEB" singleton="false">
+    <property name="WF_TempService" ref="WF_TempService" />
+  </object>
 </objects>
+
+<!--public IWF_TempService WF_TempService { get; set; }
+public IWF_InstanceService WF_InstanceService { get; set; }
+public IWF_StepService WF_StepService { get; set; }-->

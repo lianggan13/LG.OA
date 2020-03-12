@@ -16,3 +16,17 @@ C:\Users\mac\Desktop\LG.OA\QuartzTask\obj\Debug\QuartzTask.pdb
 C:\Users\mac\Desktop\LG.OA\QuartzTask\bin\Debug\Topshelf.dll
 C:\Users\mac\Desktop\LG.OA\QuartzTask\bin\Debug\Topshelf.xml
 C:\Users\mac\Desktop\LG.OA\QuartzTask\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\QuartzTask.exe.config
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\QuartzTask.exe
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\QuartzTask.pdb
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\EntityFramework.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\Quartz.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\Topshelf.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\EntityFramework.xml
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\Quartz.pdb
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\Quartz.xml
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\Topshelf.xml
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\obj\Debug\QuartzTask.csproj.CopyComplete
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\obj\Debug\QuartzTask.exe
+D:\Learn\GitHubWorkSpace\ASP.NET\LG.OA\QuartzTask\obj\Debug\QuartzTask.pdb

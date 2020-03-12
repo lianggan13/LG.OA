@@ -1,7 +1,7 @@
 ﻿using LG.OA.DAL;
 using LG.OA.DLL;
 using LG.OA.IDLL;
-using LG.OA.Model;
+using LG.OA.Model.OAModels;
 using LG.OA.Model.Enums;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace LG.OA.WEB.Controllers
             int pageSize = (Request["rows"] != null) ? int.Parse(Request["rows"]) : 5;
 
             int totalCount = 0;
-            short delFlag = (short)(DeleteEnumType.Normal);
+            short delFlag = (short)(DeleteEnum.Normal);
             var userInfos = UserInfoService.LoadEntites<int>(
                 pageIndex,
                 pageSize,
@@ -53,7 +53,7 @@ namespace LG.OA.WEB.Controllers
         public ActionResult AddUserInfo(UserInfo newUser)
         {
             //UserInfo newUser = new UserInfo();
-            newUser.DelFlag = (short)DeleteEnumType.Normal;
+            newUser.DelFlag = (short)DeleteEnum.Normal;
             newUser.ShowName = newUser.UName;
             newUser.SubTime = newUser.ModfiedOn = DateTime.Now;//.ToString("yyyy-MM-dd hh:mm:ss");
             UserInfoService.AddEntity(newUser);
@@ -96,7 +96,7 @@ namespace LG.OA.WEB.Controllers
         
         public ActionResult ShowUserRoles(int uid)
         {
-            short delFlag = (short)(DeleteEnumType.Normal);
+            short delFlag = (short)(DeleteEnum.Normal);
             UserInfo userInfo = UserInfoService.LoadEntites(o => o.ID == uid).FirstOrDefault();
             var userRoles = userInfo.RoleInfo.Where(o=>o.DelFlag == delFlag).ToList();
             var allRoles = RoleInfoService.LoadEntites(o => o.DelFlag == delFlag).ToList();
@@ -108,7 +108,7 @@ namespace LG.OA.WEB.Controllers
         }
         public ActionResult ShowUserActions(int uid)
         {
-            short normal = (short)DeleteEnumType.Normal;
+            short normal = (short)DeleteEnum.Normal;
             var userInfo = UserInfoService.LoadEntites(o => o.ID == uid).FirstOrDefault();
             var userActionInfos = userInfo.R_UserInfo_ActionInfo.ToList();
 

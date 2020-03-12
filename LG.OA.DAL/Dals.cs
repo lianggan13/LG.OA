@@ -1,7 +1,7 @@
 ﻿ 
 
 using LG.OA.IDAL;
-using LG.OA.Model;
+using LG.OA.Model.OAModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,10 +88,10 @@ namespace LG.OA.DAL
 
     }
 		
-	//public partial class UserInfoDAL :BaseDAL<UserInfo>,IUserInfoDAL
- //   {
+	public partial class UserInfoDAL :BaseDAL<UserInfo>,IUserInfoDAL
+    {
 
- //   }
+    }
 		
 	public partial class UserInfoExtDAL :BaseDAL<UserInfoExt>,IUserInfoExtDAL
     {

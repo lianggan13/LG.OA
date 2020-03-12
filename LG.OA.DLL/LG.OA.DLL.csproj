@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionInfoService.cs" />
     <Compile Include="BaseService.cs" />
+    <Compile Include="RoleInfoService.cs" />
     <Compile Include="Services.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

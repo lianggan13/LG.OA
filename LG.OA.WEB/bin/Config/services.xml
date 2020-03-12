@@ -6,4 +6,11 @@
       </object>
       <object name="ActionInfoService" type="LG.OA.DLL.ActionInfoService, LG.OA.DLL" singleton="false">
       </object>
+      <object name="WF_TempService" type="LG.OA.DLL.WF_TempService, LG.OA.DLL" singleton="false">
+      </object>
 </objects>  
+
+
+<!--public IWF_TempService WF_TempService { get; set; }
+public IWF_InstanceService WF_InstanceService { get; set; }
+public IWF_StepService WF_StepService { get; set; }-->

@@ -9,7 +9,7 @@ MetadataLoader loader = new MetadataLoader(this);
 CodeRegion region = new CodeRegion(this, 1);
 MetadataTools ef = new MetadataTools(this);
 
-string inputFile = @"..\\LG.OA.Model\\OADBModel.edmx";
+string inputFile = @"..\\LG.OA.Model\\OAModels\\OADBModel.edmx";
 
 EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
 string namespaceName = code.VsNamespaceSuggestion();
@@ -19,7 +19,7 @@ EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileMana
 #>
 
 using LG.OA.IDAL;
-using LG.OA.Model;
+using LG.OA.Model.OAModels;
 
 namespace LG.OA.IDALSession
 {

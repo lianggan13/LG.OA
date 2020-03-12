@@ -1,7 +1,7 @@
 ﻿ 
 
 using LG.OA.IDAL;
-using LG.OA.Model;
+using LG.OA.Model.OAModels;
 
 namespace LG.OA.IDALSession
 {

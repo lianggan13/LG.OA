@@ -1,25 +1,21 @@
 ﻿ 
 
-using LG.OA.Model;
+using LG.OA.Model.OAModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace LG.OA.IDLL
 {
-
-    public partial interface IActionInfoService : IBaseService<ActionInfo>
+	
+	public partial interface IActionInfoService : IBaseService<ActionInfo>
     {
-        bool DistributeUserAction(int uid, int aid, bool hasPermission);
-        bool DistributeUserAction(int aid);
-        bool DistributeRoleAction(int rid, IEnumerable<int> selectActionIds);
-        bool ValidateUserAction(UserInfo user, HttpRequestBase userRequest);
-    }
-
-    public partial interface IDefinitionIdentityTableService : IBaseService<DefinitionIdentityTable>
+        
+    }   
+	
+	public partial interface IDefinitionIdentityTableService : IBaseService<DefinitionIdentityTable>
     {
        
     }   
@@ -72,14 +68,14 @@ namespace LG.OA.IDLL
 	public partial interface IR_UserInfo_ActionInfoService : IBaseService<R_UserInfo_ActionInfo>
     {
        
-    }
-
-    public partial interface IRoleInfoService : IBaseService<RoleInfo>
+    }   
+	
+	public partial interface IRoleInfoService : IBaseService<RoleInfo>
     {
-        bool DeleteEntities(IEnumerable<int> ids);
-    }
-
-    public partial interface IRunnableInstancesTableService : IBaseService<RunnableInstancesTable>
+       
+    }   
+	
+	public partial interface IRunnableInstancesTableService : IBaseService<RunnableInstancesTable>
     {
        
     }   
@@ -87,14 +83,14 @@ namespace LG.OA.IDLL
 	public partial interface IServiceDeploymentsTableService : IBaseService<ServiceDeploymentsTable>
     {
        
-    }
-
-    public partial interface IUserInfoService : IBaseService<UserInfo>
+    }   
+	
+	public partial interface IUserInfoService : IBaseService<UserInfo>
     {
-        bool SetUserRoleInfo(int uid, List<int> rolesId);
-    }
-
-    public partial interface IUserInfoExtService : IBaseService<UserInfoExt>
+       
+    }   
+	
+	public partial interface IUserInfoExtService : IBaseService<UserInfoExt>
     {
        
     }   

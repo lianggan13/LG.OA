@@ -1,6 +1,6 @@
 ﻿using LG.OA.DALSession;
 using LG.OA.IDLL;
-using LG.OA.Model;
+using LG.OA.Model.OAModels;
 using LG.OA.Model.Enums;
 using System;
 using System.Collections.Generic;
@@ -13,14 +13,14 @@ namespace LG.OA.DLL
     public partial class UserInfoService: BaseService<UserInfo>,IUserInfoService
     {
         
-        public override void SetCurrentDAL()
-        {
-            this.CurrentDAL = CurrentDBSession.UserInfoDAL;
-        }
+        //public override void SetCurrentDAL()
+        //{
+        //    this.CurrentDAL = CurrentDBSession.UserInfoDAL;
+        //}
 
         public bool DeleteEntities(IEnumerable<int> ids)
         {
-           var userInfos =   LoadEntites(o => o.DelFlag == (short)DeleteEnumType.Normal).Where(x => ids.Contains(x.ID)).ToList();
+           var userInfos =   LoadEntites(o => o.DelFlag == (short)DeleteEnum.Normal).Where(x => ids.Contains(x.ID)).ToList();
            userInfos.ForEach(o => this.CurrentDAL.DeleteEntity(o));
             // 多表关联删除
             userInfos.ForEach(o => o.R_UserInfo_ActionInfo.Clear());     // 先删除关联表  
@@ -34,7 +34,7 @@ namespace LG.OA.DLL
 
         public bool SetUserRoleInfo(int uid, List<int> rolesId)
         {
-            short delFlag = (short)(DeleteEnumType.Normal);
+            short delFlag = (short)(DeleteEnum.Normal);
             UserInfo userInfo = LoadEntites(o => o.ID == uid).FirstOrDefault();
             if (rolesId.Count != 0)
             {
